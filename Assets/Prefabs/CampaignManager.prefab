@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7023362223991963846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7799926021759704808}
+  - component: {fileID: 2090610948833151608}
+  m_Layer: 0
+  m_Name: CampaignManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7799926021759704808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023362223991963846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2090610948833151608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023362223991963846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a139c2bd51b99114e86a2500882f258b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introScene:
+    characteres:
+    - perso: {fileID: 21300000, guid: 1ec99cbb8946d894a8bea5c6d5c97007, type: 3}
+      name: "A\xEEden"
+    - perso: {fileID: 21300000, guid: f83d34d1e66a2554fabe4e343561d741, type: 3}
+      name: Aria
+    text:
+    - Hey! Wake up
+    - Uh.. What ? What happened? What am I doing here?
+    - You don't remember? Soldier invaded the village and ask to help them to attack
+      the capital. But Owen refused so they burn our houses...
+    - Ho ... I remember ... What will happened now?
+    - While you take a nap, Owen start to build a defense. He say that they may attack
+      again or some late soldier may come soon. Come on, we will help him!

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16909d4e733bc544e916355de9c42ebc, type: 3}
+  m_Name: DefaultWeapon
+  m_EditorClassIdentifier: 
+  weaponName: Just a stupid branch
+  cost: 0
+  magicBall: {fileID: 8461130168212518419, guid: 50902edee97d314428accaede1f2a77c, type: 3}
