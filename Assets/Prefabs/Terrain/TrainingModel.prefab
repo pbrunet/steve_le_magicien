@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd94eae6c3e1294489fb3ff71e34b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 30
+  maxLife: 33
   greenBarOrigin: {fileID: 1718753454406867077}
 --- !u!61 &2961124488362473643
 BoxCollider2D:
