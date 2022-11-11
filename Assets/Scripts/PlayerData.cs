@@ -9,7 +9,9 @@ public class PlayerData : Singleton<PlayerData>
     [SerializeField] List<string> unlockedWeapons = new List<string>();
     [SerializeField] List<string> buyWeapons = new List<string>();
     [SerializeField] string equipedWeapon;
-    public int Beer { get { return beer; } } 
+    public int Beer { get { return beer; } }
+    public List<string> UnlockedWeapons { get { return unlockedWeapons; } }
+    public List<string> BuyWeapons { get { return buyWeapons; } }
     public int Garbage { get { return garbage; } }
 
     // Start is called before the first frame update
@@ -22,11 +24,11 @@ public class PlayerData : Singleton<PlayerData>
             int weaponState = PlayerPrefs.GetInt(weapon.weaponName, 0);
             if (weaponState > 0)
             {
-                buyWeapons.Add(weapon.weaponName);
+                unlockedWeapons.Add(weapon.weaponName);
             }
             if (weaponState > 1)
             {
-                unlockedWeapons.Add(weapon.weaponName);
+                buyWeapons.Add(weapon.weaponName);
             }
         }
     }

@@ -382,9 +382,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   systemPrefabs:
+  - {fileID: 6250675126847551636, guid: 671b2207e52b432418bf62ca8f000a4c, type: 3}
   - {fileID: 5673230926048287666, guid: 45283e08294742045b6e4ff56f122e23, type: 3}
   - {fileID: 5829742020274910414, guid: dcfbb5e4eb5c4d34da4ae183f9e73636, type: 3}
-  - {fileID: 6250675126847551636, guid: 671b2207e52b432418bf62ca8f000a4c, type: 3}
   - {fileID: 7023362223991963846, guid: 2aeb11289c765a44ca6ae4c16a103f1d, type: 3}
   OnGameStateChanged:
     m_PersistentCalls:
