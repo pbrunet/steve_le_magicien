@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1c3cffc51c3214eb514b3534a0a7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetSave: 1
-  beer: 0
-  garbage: 0
+  initLife: 100
+  initBeer: 0
+  initGarbage: 0
+  defaultWeapon: {fileID: 11400000, guid: 144895475c4d4f04396eca24d527fce7, type: 2}
   unlockedWeapons: []
   buyWeapons: []
-  equipedWeapon: 

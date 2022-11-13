@@ -32,7 +32,8 @@ public class PlayerState : FSM
     protected bool IsGrounded()
     {
         float distToGround = gameObject.GetComponent<Collider2D>().bounds.extents.y;
-        Debug.DrawRay(gameObject.transform.position, -Vector3.up * (distToGround + 0.1f), Color.red);
+        Debug.DrawRay(gameObject.transform.position, -Vector3.up * distToGround, Color.red);
+        Debug.DrawRay(gameObject.transform.position - Vector3.up * distToGround , -Vector3.up * 0.1f, Color.blue);
         ContactFilter2D filter = new ContactFilter2D();
         filter.useLayerMask = true;
         filter.useTriggers = false;
@@ -60,6 +61,16 @@ public class PlayerState : FSM
             {
                 continue;
             }
+
+            float distToGround = gameObject.GetComponent<Collider2D>().bounds.extents.y;
+            if ((hit.point.y + distToGround - hit.centroid.y) < 0.1f) {
+                Vector2 pos = gameObject.GetComponent<Rigidbody2D>().transform.position;
+                pos.y += 0.1f;
+                gameObject.GetComponent<Rigidbody2D>().MovePosition(pos);
+                continue;
+
+            }
+            Debug.Log("Collide with : " + hit.normal + hit.centroid + (hit.point + new Vector2(0, distToGround)) + gameObject.GetComponent<Rigidbody2D>().transform.position);
 
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
             break;

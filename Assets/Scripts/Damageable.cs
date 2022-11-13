@@ -41,7 +41,7 @@ public class Damageable : MonoBehaviour
         life -= numDamage;
         if(tag == "Player")
         {
-            UIManager.Instance.inGameHUD.UpdadeLifeGUI(this);
+            life = PlayerData.Instance.DamageBy(numDamage);
         }
 
         if(OnHit != null)
@@ -69,9 +69,5 @@ public class Damageable : MonoBehaviour
     void Start()
     {
         life = maxLife;
-        if (tag == "Player")
-        {
-            UIManager.Instance.inGameHUD.UpdadeLifeGUI(this);
-        }
     }
 }
