@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cbfdd7364649d4eafd581907f749ca, type: 3}
+  m_Name: Epouvantaille
+  m_EditorClassIdentifier: 
+  monsterName: Epouvan-taille
+  monsterDesc: 'I won''t hurt a fly ... '
+  monsterImg: {fileID: 21300000, guid: dfbf1b1ecd27cd444a77f46a9a4f3a1a, type: 3}
