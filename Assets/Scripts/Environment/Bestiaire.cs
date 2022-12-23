@@ -8,6 +8,6 @@ public class Bestiaire : Interactable
 
     public override void DoInteract(InputAction.CallbackContext cb)
     {
-        UIManager.Instance.OpenBestiaire();
+       // UIManager.Instance.OpenBestiaire();
     }
 }

@@ -34,10 +34,10 @@ public class BestiaireUI : MonoBehaviour
     }
     private void DisplayData()
     {
-        enemyImg.SetActive(true);
-        enemyImg.GetComponent<Image>().sprite = CampaignManager.Instance.AllMonsters[currentPage].monsterImg;
-        title.text = CampaignManager.Instance.AllMonsters[currentPage].monsterName;
-        desc.text = CampaignManager.Instance.AllMonsters[currentPage].monsterDesc;
+       // enemyImg.SetActive(true);
+      //  enemyImg.GetComponent<Image>().sprite = CampaignManager.Instance.AllMonsters[currentPage].monsterImg;
+      //  title.text = CampaignManager.Instance.AllMonsters[currentPage].monsterName;
+       // desc.text = CampaignManager.Instance.AllMonsters[currentPage].monsterDesc;
     }
 
 
@@ -45,7 +45,7 @@ public class BestiaireUI : MonoBehaviour
     {
         if (!inProgress)
         {
-            if (currentPage < CampaignManager.Instance.AllMonsters.Count - 1)
+            //if (currentPage < CampaignManager.Instance.AllMonsters.Count - 1)
             {
                 inProgress = true;
                 current = 0;
