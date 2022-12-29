@@ -80,7 +80,7 @@ public class PlayerData : Singleton<PlayerData>
         PlayerPrefs.SetInt("life", life);
         foreach (WeaponUpgradeData weapon in WeaponUpgradeManager.Instance.AllWeapons)
         {
-            PlayerPrefs.SetInt(weapon.weaponName, (unlockedWeapons.Contains(weapon) ? 1 : 0) | (buyWeapons.Contains(weapon) ? 1 : 0) << 1 | ((weapon is WeaponUpgradeData equipedWeapon) ? 1 : 0) << 2);
+            PlayerPrefs.SetInt(weapon.weaponName, (unlockedWeapons.Contains(weapon) ? 1 : 0) | ((buyWeapons.Contains(weapon) ? 1 : 0) << 1) | (((weapon is WeaponUpgradeData equipedWeapon) ? 1 : 0) << 2) );
         }
         PlayerPrefs.Save();
     }

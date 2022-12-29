@@ -11,6 +11,7 @@ public enum AttackKind
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/WeaponUpgradeData", order = 1)]
 public class WeaponUpgradeData : ScriptableObject
 {
+    public Sprite weaponImg;
     public string weaponName;
     public int cost;
     public MagicBall magicBall;

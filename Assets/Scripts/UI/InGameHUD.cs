@@ -40,6 +40,8 @@ public class InGameHUD : MonoBehaviour
             ownedWeapons += weapon.weaponName;
         }
 
+        weapon.gameObject.transform.GetChild(1).GetComponent<Image>().sprite = PlayerData.Instance.EquipedWeapon.weaponImg;
+
         weapon.SetText(System.String.Format("Equiped Weapon : {0}\nOwned Weapon : [{1}]", PlayerData.Instance.EquipedWeapon.weaponName, ownedWeapons));
     }
 
