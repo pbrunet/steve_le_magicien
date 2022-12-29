@@ -50,4 +50,5 @@ public class InGameHUD : MonoBehaviour
         UpdadeLifeGUI();
         UpdateWeaponGUI();
     }
+
 }
