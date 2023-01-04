@@ -86,6 +86,18 @@ public class PlayerData : Singleton<PlayerData>
     }
 
     public WeaponUpgradeData GetCurrentWeapon() { return equipedWeapon; }
+    public void GetNextWeapon() {
+
+        for(int i=0; i< buyWeapons.Count; i++)
+        {
+            WeaponUpgradeData weapon = buyWeapons[i];
+            if (equipedWeapon == weapon)
+            {
+                equipedWeapon = buyWeapons[(i + 1) % buyWeapons.Count];
+                return;
+            }
+        }
+    }
 
     public void loot(int beer, int garbage)
     {

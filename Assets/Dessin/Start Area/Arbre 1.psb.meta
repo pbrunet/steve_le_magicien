@@ -47,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: biblio
@@ -111,7 +113,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1905, y: 600}
+    uvTransform: {x: 2662, y: 4464}
+    spritePosition: {x: 757, y: 3864}
   - name: Plateforme
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +135,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1853, y: 1360}
+    uvTransform: {x: 3327, y: 4464}
+    spritePosition: {x: 1474, y: 3104}
   - name: Plateforme2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -153,7 +157,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1107, y: 2557}
+    uvTransform: {x: 2662, y: 5641}
+    spritePosition: {x: 1555, y: 3084}
   - name: Plateforme
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -161,10 +166,10 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3327
+      x: 3332
       y: 5256
-      width: 513
-      height: 913
+      width: 512
+      height: 195
     spriteID: fc3b5719cdf7bf8478e80cc206ad47e3
     spriteBone: []
     spriteOutline: []
@@ -174,7 +179,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1804, y: 2999}
+    uvTransform: {x: 3327, y: 5256}
+    spritePosition: {x: 1523, y: 2257}
   - name: Oreiller
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -195,7 +201,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 214, y: 2479}
+    uvTransform: {x: 2425, y: 6351}
+    spritePosition: {x: 2211, y: 3872}
   - name: cabane contour
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -216,7 +223,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -373, y: 708}
+    uvTransform: {x: 4, y: 4464}
+    spritePosition: {x: 377, y: 3756}
   - name: cabane fond
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -237,7 +245,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -521, y: 2509}
+    uvTransform: {x: 4, y: 6351}
+    spritePosition: {x: 525, y: 3842}
   - name: 'ARbre '
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -258,7 +267,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -15, y: -1576}
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 19, y: 1580}
   - name: Racine
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -279,7 +289,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4249, y: -17}
+    uvTransform: {x: 4393, y: 4}
+    spritePosition: {x: 144, y: 21}
   characterData:
     bones: []
     parts: []

@@ -14,6 +14,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] public InGameHUD inGameHUD;
     [SerializeField] public WeaponUpgradeUI weaponUpgradeUI;
     [SerializeField] private WorkBenchUI workBenchUI;
+    [SerializeField] private BestiaireUI bestiaireUI;
     [SerializeField] private SelfImproveUI selfImproveUI;
 
     [System.Serializable]
@@ -60,6 +61,10 @@ public class UIManager : Singleton<UIManager>
     public void OpenWorkBench()
     {
         workBenchUI.gameObject.SetActive(true);
+    }
+    public void OpenBestiaire()
+    {
+        bestiaireUI.gameObject.SetActive(true);
     }
     public void OpenSelfImprovement()
     {
