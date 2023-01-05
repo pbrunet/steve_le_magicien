@@ -23,7 +23,7 @@ public class InGameHUD : MonoBehaviour
 
     public void UpdateGarbageGUI()
     {
-        garbage.SetText("Garbage : " + PlayerData.Instance.Garbage);
+        garbage.SetText(PlayerData.Instance.Garbage.ToString());
     }
 
     public void UpdateWeaponGUI()
