@@ -19,6 +19,10 @@ public class PlayerData : Singleton<PlayerData>
     private int garbage;
     public int Garbage { get { return garbage; } }
 
+    [SerializeField] int initGhost;
+    private int ghost;
+    public int Ghost { get { return ghost; } }
+
     [Header("Weapon")]
     [SerializeField] WeaponUpgradeData defaultWeapon;
     private WeaponUpgradeData equipedWeapon;
@@ -35,6 +39,7 @@ public class PlayerData : Singleton<PlayerData>
     {
         beer = PlayerPrefs.GetInt("beer", initBeer);
         garbage = PlayerPrefs.GetInt("garbage", initGarbage);
+        ghost = PlayerPrefs.GetInt("ghost", initGhost);
         life = PlayerPrefs.GetInt("life", initLife);
         foreach (WeaponUpgradeData weapon in WeaponUpgradeManager.Instance.AllWeapons) {
             int weaponState = PlayerPrefs.GetInt(weapon.weaponName, 0);
@@ -77,6 +82,7 @@ public class PlayerData : Singleton<PlayerData>
     {
         PlayerPrefs.SetInt("beer", beer);
         PlayerPrefs.SetInt("garbage", garbage);
+        PlayerPrefs.SetInt("ghost", ghost);
         PlayerPrefs.SetInt("life", life);
         foreach (WeaponUpgradeData weapon in WeaponUpgradeManager.Instance.AllWeapons)
         {
@@ -99,12 +105,14 @@ public class PlayerData : Singleton<PlayerData>
         }
     }
 
-    public void loot(int beer, int garbage)
+    public void loot(int beer, int garbage, int ghost)
     {
         this.beer += beer;
         this.garbage += garbage;
+        this.ghost += ghost;
         Save();
         UIManager.Instance.inGameHUD.UpdadeBeerGUI();
         UIManager.Instance.inGameHUD.UpdateGarbageGUI();
+        UIManager.Instance.inGameHUD.UpdateGhostGUI();
     }
 }

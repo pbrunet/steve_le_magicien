@@ -9,6 +9,7 @@ public class InGameHUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI life;
     [SerializeField] private TextMeshProUGUI beer;
     [SerializeField] private TextMeshProUGUI garbage;
+    [SerializeField] private TextMeshProUGUI ghost;
     [SerializeField] private TextMeshProUGUI weapon;
 
     public void UpdadeLifeGUI()
@@ -24,6 +25,10 @@ public class InGameHUD : MonoBehaviour
     public void UpdateGarbageGUI()
     {
         garbage.SetText(PlayerData.Instance.Garbage.ToString());
+    }
+    public void UpdateGhostGUI()
+    {
+        ghost.SetText(PlayerData.Instance.Ghost.ToString());
     }
 
     public void UpdateWeaponGUI()
@@ -49,6 +54,7 @@ public class InGameHUD : MonoBehaviour
     {
         UpdadeBeerGUI();
         UpdateGarbageGUI();
+        UpdateGhostGUI();
         UpdadeLifeGUI();
         UpdateWeaponGUI();
     }

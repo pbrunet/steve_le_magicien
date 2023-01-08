@@ -13,6 +13,6 @@ public class Loot : MonoBehaviour
 
     private void Loot_OnKilled(GameObject instigator)
     {
-        PlayerData.Instance.loot(Beer, Garbage);
+        PlayerData.Instance.loot(Beer, Garbage, 1);
     }
 }
