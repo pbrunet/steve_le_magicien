@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -11,17 +13,38 @@ public class LevelGenerator : MonoBehaviour
     private float xSize = 90f;
     private float ySize = 60f;
 
+
+    private GeneratedCell[][] grid;
+
     private List<Tuple<int, int>> usedCells = new List<Tuple<int, int>>();
 
     // Start is called before the first frame update
     void Start()
     {
-        GenNeighboor(GetComponent<GeneratedCell>(), new Tuple<int, int>( 0, 0 ));
+        grid = new GeneratedCell[NumCells][];
+        for (int i = 0; i < NumCells; i++)
+        {
+            grid[i] = new GeneratedCell[NumCells];
+        }
+
+        GenNeighboor(GetComponent<GeneratedCell>(), new Tuple<int, int>(5, 5));
+
+
+        for (int i = 0; i < grid.Length; i++)
+        {
+            for (int j = 0; j < grid[i].Length; j++)
+            {
+                if (i == 5 && j == 5) continue; // This is the seed!
+                if(grid[i][j] == null) continue;
+                Instantiate(grid[i][j], new Vector3((i - 5) * xSize, (j - 5) * ySize, gameObject.transform.position.z), gameObject.transform.rotation, gameObject.transform);
+            }
+        }
     }
 
     void GenNeighboor(GeneratedCell currentCell, Tuple<int, int> pos)
     {
-        usedCells.Add(pos);
+        grid[pos.Item1][pos.Item2] = currentCell;
+
         var neighborCell = currentCell.neighborCell;
 
         for (int i = 0; i < neighborCell.Length; i++)
@@ -52,18 +75,20 @@ public class LevelGenerator : MonoBehaviour
                     newPos = new Tuple<int, int>(pos.Item1, pos.Item2 - 1); 
                     break;
             }
-            if(usedCells.Contains(newPos))
+
+            if(newPos.Item1 < 0 || newPos.Item2 < 0 || newPos.Item1 >= grid.Length || newPos.Item2 >= grid[0].Length) {
+                continue;
+            }
+
+            if (grid[newPos.Item1][newPos.Item2] != null)
             {
                 continue;
             }
 
             NumCells--;
-            usedCells.Add(newPos);
 
             // FIXME: We should also consider "other neightbor" to find a common tile
             GeneratedCell sideCell = neighborCell[i].cells[UnityEngine.Random.Range(0, neighborCell[i].cells.Count)];
-
-            Instantiate(sideCell, new Vector3(newPos.Item1 * xSize, newPos.Item2 * ySize, gameObject.transform.position.z), gameObject.transform.rotation, gameObject.transform);
 
             GenNeighboor(sideCell, newPos);
         }
