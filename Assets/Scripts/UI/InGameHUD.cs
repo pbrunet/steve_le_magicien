@@ -28,7 +28,7 @@ public class InGameHUD : MonoBehaviour
     }
     public void UpdateGhostGUI()
     {
-        ghost.SetText(PlayerData.Instance.Ghost.ToString());
+        //ghost.SetText(PlayerData.Instance.Ghost.ToString());
     }
 
     public void UpdateWeaponGUI()

@@ -20,6 +20,7 @@ public class GeneratedCell : MonoBehaviour
 
     [EnumNamedArrayAttribute(typeof(NeightborSide))]
     [SerializeField] public NeightborList[] neighborCell = new NeightborList[4];
+    [SerializeField] public Vector3 possibleExitPos = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()

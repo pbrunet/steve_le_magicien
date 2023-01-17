@@ -1177,6 +1177,7 @@ MonoBehaviour:
     - {fileID: -5212468253658040106, guid: 74e7940b1f65fbd4dbd10ab1fd3f4855, type: 3}
     - {fileID: -6981487696617652882, guid: d9b680a3b3d72394e8c7acedadf0a8cc, type: 3}
   - cells: []
+  possibleExitPos: {x: 29.052998, y: -8.2689295, z: 0}
 --- !u!1 &2145447641114895703
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ public class LevelGenerator : MonoBehaviour
 {
 
     [SerializeField] int NumCells = 10;
+    [SerializeField] string nextLevel = "";
+    [SerializeField] GoToLevel nextLevelPrefab;
 
     private float xSize = 90f;
     private float ySize = 60f;
@@ -42,6 +44,11 @@ public class LevelGenerator : MonoBehaviour
                 Instantiate(grid[i][j], new Vector3((i - 5) * xSize, (j - 5) * ySize, gameObject.transform.position.z), gameObject.transform.rotation, gameObject.transform);
             }
         }
+
+        Tuple<int, int> cellWithExit = GeneratedPos[UnityEngine.Random.Range(0, GeneratedPos.Count)];
+        GeneratedCell genWithExit = grid[cellWithExit.Item1][cellWithExit.Item2];
+        GoToLevel spawnedNextLevel = Instantiate<GoToLevel>(nextLevelPrefab, new Vector3((cellWithExit.Item1 - 5) * xSize + genWithExit.possibleExitPos.x + nextLevelPrefab.transform.position.x, (cellWithExit.Item2 - 5) * ySize + genWithExit.possibleExitPos.y + nextLevelPrefab.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation, gameObject.transform);
+        spawnedNextLevel.SetNextLevel(nextLevel);
     }
 
     bool GenNeighboor(GeneratedCell currentCell, Tuple<int, int> pos, List<Tuple<int, int>> generatedPos)

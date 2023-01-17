@@ -14,6 +14,11 @@ public abstract class Interactable : MonoBehaviour
 
     private GameObject tooltip;
 
+    public void OnDestroy()
+    {
+        Destroy(tooltip);
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
