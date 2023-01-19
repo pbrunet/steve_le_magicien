@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16909d4e733bc544e916355de9c42ebc, type: 3}
   m_Name: Invoke
   m_EditorClassIdentifier: 
-  weaponImg: {fileID: 21300000, guid: d5f14806f98f3194b82ee538b6ff5efb, type: 3}
+  weaponImg: {fileID: 21300000, guid: 59be77fcafa6d9440953cab72ca8488c, type: 3}
   weaponName: Invocation stick
   cost: 250
   magicBall: {fileID: 0}
