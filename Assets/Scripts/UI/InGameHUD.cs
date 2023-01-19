@@ -6,29 +6,35 @@ using TMPro;
 
 public class InGameHUD : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI life;
-    [SerializeField] private TextMeshProUGUI beer;
-    [SerializeField] private TextMeshProUGUI garbage;
-    [SerializeField] private TextMeshProUGUI ghost;
-    [SerializeField] private TextMeshProUGUI weapon;
+    [System.Serializable]
+    public class HUDEntry
+    {
+        public TextMeshProUGUI txt;
+        public Image img;
+    }
+    [SerializeField] private HUDEntry life;
+    [SerializeField] private HUDEntry beer;
+    [SerializeField] private HUDEntry garbage;
+    [SerializeField] private HUDEntry ghost;
+    [SerializeField] private HUDEntry weapon;
 
     public void UpdadeLifeGUI()
     {
-        life.SetText("Life : " + PlayerData.Instance.Life);
+        life.txt.SetText("Life : " + PlayerData.Instance.Life);
     }
 
     public void UpdadeBeerGUI()
     {
-        beer.SetText("Beer : " + PlayerData.Instance.Beer);
+        beer.txt.SetText(PlayerData.Instance.Beer.ToString());
     }
 
     public void UpdateGarbageGUI()
     {
-        garbage.SetText(PlayerData.Instance.Garbage.ToString());
+        garbage.txt.SetText(PlayerData.Instance.Garbage.ToString());
     }
     public void UpdateGhostGUI()
     {
-        //ghost.SetText(PlayerData.Instance.Ghost.ToString());
+        ghost.txt.SetText(PlayerData.Instance.Ghost.ToString());
     }
 
     public void UpdateWeaponGUI()
@@ -45,9 +51,9 @@ public class InGameHUD : MonoBehaviour
             ownedWeapons += weapon.weaponName;
         }
 
-        weapon.gameObject.transform.GetChild(1).GetComponent<Image>().sprite = PlayerData.Instance.EquipedWeapon.weaponImg;
+        weapon.img.sprite = PlayerData.Instance.EquipedWeapon.weaponImg;
 
-        weapon.SetText(System.String.Format("Equiped Weapon : {0}\nOwned Weapon : [{1}]", PlayerData.Instance.EquipedWeapon.weaponName, ownedWeapons));
+        weapon.txt.SetText(System.String.Format("Equiped Weapon : {0}\nOwned Weapon : [{1}]", PlayerData.Instance.EquipedWeapon.weaponName, ownedWeapons));
     }
 
     private void Start()
