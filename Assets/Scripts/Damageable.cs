@@ -21,18 +21,24 @@ public class Damageable : MonoBehaviour
         {
             MagicBall mb = collision.collider.GetComponent<MagicBall>();
             DealDamage(mb.Damage, collision.collider.gameObject);
-            StartCoroutine(doTimedDamaged(mb.DamagePerSec, mb.DamageDuration, collision.collider.gameObject));
+            StartCoroutine(doTimedDamaged(mb.numDamage, mb.DamageDuration, collision.collider.gameObject));
         }    
     }
 
-    IEnumerator doTimedDamaged(int damagePerSec, float duration, GameObject instigator)
+    IEnumerator doTimedDamaged(int numDamage, float duration, GameObject instigator)
     {
-        float timeBetweenDamage = 1; // 1 sec between each timed damage
-        int numRepeat = (int)(duration / timeBetweenDamage);
-        for(int i=0; i<numRepeat; i++)
+        float timeBetweenDamage = 0.1f; // 1 sec between each timed damage
+        int dmgDone = 0;
+        while(dmgDone < numDamage)
         {
             yield return new WaitForSeconds(timeBetweenDamage);
-            DealDamage(damagePerSec, instigator);
+            int dmg = Mathf.CeilToInt(numDamage * timeBetweenDamage / duration);
+            dmgDone += dmg;
+            if(dmgDone > numDamage)
+            {
+                dmg -= numDamage - dmgDone;
+            }
+            DealDamage(dmg, instigator);
         }
     }
 

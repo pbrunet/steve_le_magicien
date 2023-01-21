@@ -10,7 +10,7 @@ public class MagicBall : MonoBehaviour
 
     public float DamageDuration { get { return damageDuration; } }
     public int Damage { get { return damage; } }
-    public int DamagePerSec { get { return damagePerSec; } }
+    public int numDamage { get { return damagePerSec; } }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
