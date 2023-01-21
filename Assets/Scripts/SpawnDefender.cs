@@ -27,9 +27,10 @@ public class SpawnDefender : MonoBehaviour
     private void SpawnDef()
     {
         GameObject obj = Instantiate(defenderPrefab, gameObject.transform);
+        obj.SetActive(true);
         obj.transform.position += new Vector3(Random.Range(-range, range), Random.Range(-range, range), 0);
         //obj.GetComponent<defenderBehavior>().spawner = this;
-        obj.GetComponent<Damageable>().OnKilled += OnDefenderKilled;
+        //obj.GetComponent<Damageable>().OnKilled += OnDefenderKilled;
 
     }
 }
