@@ -313,7 +313,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -1301,6 +1301,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5758025264694488271, guid: 465c6a1d625939d459b2bfaf6ec890a8, type: 3}
       propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758025264694488271, guid: 465c6a1d625939d459b2bfaf6ec890a8, type: 3}
+      propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -44,7 +44,7 @@ public class PlayerState : FSM
 
     protected void FixVelocityWithContact()
     {
-        RaycastHit2D[] hits = Physics2D.BoxCastAll(gameObject.GetComponent<Rigidbody2D>().transform.position, GetBoxColliderSize(), 0, gameObject.GetComponent<Rigidbody2D>().velocity.normalized, gameObject.GetComponent<Rigidbody2D>().velocity.magnitude * Time.deltaTime, ~LayerMask.GetMask("Player"));
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(gameObject.GetComponent<Rigidbody2D>().transform.position, GetBoxColliderSize(), 0, gameObject.GetComponent<Rigidbody2D>().velocity.normalized, gameObject.GetComponent<Rigidbody2D>().velocity.magnitude * Time.deltaTime, ~LayerMask.GetMask("Player") & ~LayerMask.GetMask("Enemy"));
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider.isTrigger)
