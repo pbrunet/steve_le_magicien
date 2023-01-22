@@ -3,15 +3,15 @@
 
 [mergetool "unityyamlmerge"]
 	trustExitCode = false
-	cmd = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Tools/UnityYAMLMerge.exe' merge -p \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
+	cmd = 'C:/Program Files/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Tools/UnityYAMLMerge.exe' merge -p \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
 
 [merge "unityyamlmerge"]
 	name = UnityYAMLMerge
-	driver = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Tools/UnityYAMLMerge.exe' merge --force --fallback none %O %B %A %P
+	driver = 'C:/Program Files/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Tools/UnityYAMLMerge.exe' merge --force --fallback none %O %B %A %P
 
 [diff]
 	tool = unityyamldiff
 
 [difftool "unityyamldiff"]
 	trustExitCode = false
-	cmd = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Tools/UnityYAMLMerge.exe' diff \"$REMOTE\" \"$LOCAL\"
+	cmd = 'C:/Program Files/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Tools/UnityYAMLMerge.exe' diff \"$REMOTE\" \"$LOCAL\"
