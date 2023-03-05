@@ -50,4 +50,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5e596d832552d84da181d140dced1d0, type: 2}
   - {fileID: 11400000, guid: 8b96075f3cecdf048b09edabd8d09dae, type: 2}
   - {fileID: 11400000, guid: 8aeb54aae91576047ba163ca01157e45, type: 2}
+  - {fileID: 11400000, guid: 876033c2e334ebd4098e644ba8f3ab19, type: 2}
+  - {fileID: 11400000, guid: 1ef8ae0569b98354a915fd0abd5b503f, type: 2}
   defaultWeapon: {fileID: 11400000, guid: 144895475c4d4f04396eca24d527fce7, type: 2}

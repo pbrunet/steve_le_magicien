@@ -12,7 +12,7 @@ public class InGameHUD : MonoBehaviour
         public TextMeshProUGUI txt;
         public Image img;
     }
-    [SerializeField] private HUDEntry life;
+    [SerializeField] private Image lifeFill;
     [SerializeField] private HUDEntry beer;
     [SerializeField] private HUDEntry garbage;
     [SerializeField] private HUDEntry ghost;
@@ -20,7 +20,7 @@ public class InGameHUD : MonoBehaviour
 
     public void UpdadeLifeGUI()
     {
-        life.txt.SetText("Life : " + PlayerData.Instance.Life);
+        lifeFill.fillAmount = 0.5f;
     }
 
     public void UpdadeBeerGUI()
@@ -52,8 +52,6 @@ public class InGameHUD : MonoBehaviour
         }
 
         weapon.img.sprite = PlayerData.Instance.EquipedWeapon.weaponImg;
-
-        weapon.txt.SetText(System.String.Format("Equiped Weapon : {0}\nOwned Weapon : [{1}]", PlayerData.Instance.EquipedWeapon.weaponName, ownedWeapons));
     }
 
     private void Start()

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16909d4e733bc544e916355de9c42ebc, type: 3}
-  m_Name: Meteor
+  m_Name: Normale
   m_EditorClassIdentifier: 
-  weaponImg: {fileID: 21300000, guid: d5f14806f98f3194b82ee538b6ff5efb, type: 3}
-  weaponName: Meteor stick
-  cost: 1000
-  magicBall: {fileID: 0}
+  weaponImg: {fileID: 21300000, guid: d1e41c0807446ce40a84a75736974fdb, type: 3}
+  weaponName: Baguette Normal
+  cost: 120
+  magicBall: {fileID: 8461130168212518419, guid: 8829c3f87eb446448afcdc7dedaff608, type: 3}
   kind: 0
   requirements:
-  - {fileID: 11400000, guid: 8aeb54aae91576047ba163ca01157e45, type: 2}
+  - {fileID: 11400000, guid: 144895475c4d4f04396eca24d527fce7, type: 2}

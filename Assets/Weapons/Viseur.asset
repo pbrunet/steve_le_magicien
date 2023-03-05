@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16909d4e733bc544e916355de9c42ebc, type: 3}
-  m_Name: Invoke
+  m_Name: Viseur
   m_EditorClassIdentifier: 
-  weaponImg: {fileID: 21300000, guid: 59be77fcafa6d9440953cab72ca8488c, type: 3}
-  weaponName: Invocation stick
-  cost: 250
+  weaponImg: {fileID: 21300000, guid: c57b84f5257ece840ab184bb5391211b, type: 3}
+  weaponName: "Baguette D\xE9gats de zone"
+  cost: 1000
   magicBall: {fileID: 0}
   kind: 0
   requirements:
-  - {fileID: 11400000, guid: 144895475c4d4f04396eca24d527fce7, type: 2}
+  - {fileID: 11400000, guid: 8aeb54aae91576047ba163ca01157e45, type: 2}
