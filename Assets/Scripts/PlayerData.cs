@@ -8,6 +8,7 @@ public class PlayerData : Singleton<PlayerData>
     [Header("Player")]
     [SerializeField] int initLife = 100;
     private int life;
+    public int InitLife { get { return initLife; } }
     public int Life { get { return life; } }
 
     [Header("Money")]

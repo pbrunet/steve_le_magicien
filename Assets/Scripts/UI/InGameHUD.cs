@@ -20,7 +20,7 @@ public class InGameHUD : MonoBehaviour
 
     public void UpdadeLifeGUI()
     {
-        lifeFill.fillAmount = 0.5f;
+        lifeFill.fillAmount = (float)(PlayerData.Instance.Life) / (float)(PlayerData.Instance.InitLife);
     }
 
     public void UpdadeBeerGUI()
