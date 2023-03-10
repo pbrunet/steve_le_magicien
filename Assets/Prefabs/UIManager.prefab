@@ -4186,10 +4186,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4964659616836762946}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 5335051556422268046}
+        m_TargetAssemblyTypeName: BestiaireUI, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6271,6 +6271,7 @@ GameObject:
   - component: {fileID: 2096313685342424689}
   - component: {fileID: 5335051556422268046}
   - component: {fileID: 1217821773664476981}
+  - component: {fileID: 3666717379885727422}
   m_Layer: 0
   m_Name: Bestiaire
   m_TagString: Untagged
@@ -6336,6 +6337,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &3666717379885727422
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964659616836762946}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5117012025429520036
 GameObject:
   m_ObjectHideFlags: 0

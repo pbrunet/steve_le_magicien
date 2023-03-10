@@ -13,6 +13,7 @@ public class DialogInteract : Interactable
 
     public override void DoInteract(InputAction.CallbackContext cb)
     {
+        base.DoInteract(cb);
         GetComponent<Speech>().enabled = true;
     }
 }

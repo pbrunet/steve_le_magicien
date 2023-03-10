@@ -11,6 +11,7 @@ class GoToLevel : Interactable
 
     public override void DoInteract(InputAction.CallbackContext cb)
     {
+        base.DoInteract(cb);
         GameManager.Instance.TransitionToLevel(sceneName);
     }
 }

@@ -38,7 +38,7 @@ public abstract class Interactable : MonoBehaviour
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (tooltip != null && collision.gameObject.tag == "Player")
         {
             InputActionMap actionMap = actionAsset.FindActionMap("Player");
             InputAction action = actionMap.FindAction(actionName);
@@ -55,5 +55,9 @@ public abstract class Interactable : MonoBehaviour
         }
     }
 
-    public abstract void DoInteract(InputAction.CallbackContext cb);
+    public virtual void DoInteract(InputAction.CallbackContext cb)
+    {
+        Destroy(tooltip);
+        tooltip = null;
+    }
 }

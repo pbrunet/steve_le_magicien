@@ -8,6 +8,7 @@ public class WorkBench : Interactable
 
     public override void DoInteract(InputAction.CallbackContext cb)
     {
+        base.DoInteract(cb);
         UIManager.Instance.OpenWorkBench();
     }
 }

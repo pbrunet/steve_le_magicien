@@ -64,7 +64,7 @@ public class UIManager : Singleton<UIManager>
     }
     public void OpenBestiaire()
     {
-        bestiaireUI.gameObject.SetActive(true);
+        bestiaireUI.Open();
     }
     public void OpenSelfImprovement()
     {

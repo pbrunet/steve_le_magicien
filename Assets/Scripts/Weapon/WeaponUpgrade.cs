@@ -7,6 +7,7 @@ public class WeaponUpgrade : Interactable
 {
     public override void DoInteract(InputAction.CallbackContext cb)
     {
+        base.DoInteract(cb);
         UIManager.Instance.OpenWeaponUpgrade();
     }
 }

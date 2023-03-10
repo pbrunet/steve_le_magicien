@@ -43,6 +43,21 @@ public class BestiaireUI : MonoBehaviour
         }
     }
 
+    public void Open()
+    {
+        gameObject.SetActive(true);
+        GetComponent<Animator>().Play("Open");
+    }
+
+    public void Close()
+    {
+        GetComponent<Animator>().Play("Close");
+    }
+    public void OnClose()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void GoToBackPage()
     {
         if (currentPage > 0)
