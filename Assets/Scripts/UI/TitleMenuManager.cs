@@ -12,7 +12,7 @@ public class TitleMenuManager : MonoBehaviour
 
     private void Start()
     {
-        FadeIn();
+        //FadeIn();
     }
 
     public void FadeInCompleted()
@@ -45,13 +45,13 @@ public class TitleMenuManager : MonoBehaviour
 
     public void OnNewGameClicked()
     {
-        FadeOut();
+        //FadeOut();
         CampaignManager.Instance.StartNewGame();
     }
 
     public void OnQuitClicked()
     {
-        FadeOut();
+        //FadeOut();
 
         GameManager.Instance.Quit();
     }

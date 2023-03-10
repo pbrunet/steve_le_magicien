@@ -4876,7 +4876,6 @@ GameObject:
   - component: {fileID: 8783581428663513160}
   - component: {fileID: 8738119337926969246}
   - component: {fileID: 5577178397287064105}
-  - component: {fileID: 1547071171027450667}
   - component: {fileID: 405283174}
   - component: {fileID: 1707498739}
   - component: {fileID: 8410685758610026604}
@@ -4979,21 +4978,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1547071171027450667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3060011136226599543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a88d35dffc17b46aa94cef2a4e522e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionAsset: {fileID: -944628639613478452, guid: 63a2efc9a7e29534da472167c223a0f7, type: 3}
-  speed: 30
-  jumpSpeed: 50
 --- !u!114 &405283174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5008,6 +4992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
   smoothTime: 2
+  offsetSpeed: 5
 --- !u!114 &1707498739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5078,7 +5063,7 @@ MonoBehaviour:
   - {x: -1.8170776, y: -3.9791799, z: 0}
   m_ShapePathHash: -638696789
   m_Mesh: {fileID: 0}
-  m_InstanceId: -157756
+  m_InstanceId: 50404
 --- !u!61 &1711046824
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.U2D;
 
-[RequireComponent(typeof(SpriteRenderer))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     [SerializeField] private InputActionAsset actionAsset;
     public float speed = 1000;
@@ -14,46 +13,52 @@ public class PlayerController : MonoBehaviour
 
     public float JumpSpeed { get { return jumpSpeed; } }
 
-    public event System.Action<float> OnMoveCB;
     public event System.Action OnJumpCB;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
+        OnEnablePlayer();
+    }
+    private void OnDisable()
+    {
+        OnDisablePlayer();
+    }
 
+    public void OnDisablePlayer()
+    {
+        InputActionMap actionMap = actionAsset.FindActionMap("Player");
+        actionMap.Disable();
+
+        // Handle move
+        InputAction move = actionMap.FindAction("Move");
+        move.Disable();
+
+        // Handle jump
+        InputAction jump = actionMap.FindAction("Jump");
+        jump.Disable();
+        jump.started += OnJump;
+    }
+
+    public void OnEnablePlayer() {
         InputActionMap actionMap = actionAsset.FindActionMap("Player");
         actionMap.Enable();
 
         // Handle move
         InputAction move = actionMap.FindAction("Move");
         move.Enable();
-        move.performed += ctx =>
-        {
-            if (OnMoveCB != null)
-            {
-                OnMoveCB(speed * ctx.ReadValue<float>());
-                Debug.Log("Move is " + speed * ctx.ReadValue<float>());
-            }
-        };
-        move.canceled += ctx =>
-        {
-            if (OnMoveCB != null)
-            {
-                OnMoveCB(0);
-                Debug.Log("Move is " + 0);
-            }
-        };
 
         // Handle jump
         InputAction jump = actionMap.FindAction("Jump");
         jump.Enable();
-        jump.started += ctx =>
+        jump.started += OnJump;
+    }
+
+    private void OnJump(InputAction.CallbackContext ctx)
+    {
+        if (OnJumpCB != null)
         {
-            if (OnJumpCB != null)
-            {
-                OnJumpCB();
-            }
-        };
+            OnJumpCB();
+        }
     }
 
     public float GetCurrentSpeed()

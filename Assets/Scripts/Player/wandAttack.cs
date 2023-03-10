@@ -23,8 +23,8 @@ public class wandAttack : MonoBehaviour
         WeaponUpgradeData weapon = PlayerData.Instance.GetCurrentWeapon();
         if (weapon.kind == AttackKind.SHOT_BULLET)
         {
-            MagicBall bullet = Instantiate<MagicBall>(weapon.magicBall, new Vector3(gameObject.transform.position.x + 5 * GetComponent<PlayerController>().GetDirection(), gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
-            bullet.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed * GetComponent<PlayerController>().GetDirection(), 0, 0);
+            MagicBall bullet = Instantiate<MagicBall>(weapon.magicBall, new Vector3(gameObject.transform.position.x + 5 * PlayerController.Instance.GetDirection(), gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            bullet.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed * PlayerController.Instance.GetDirection(), 0, 0);
         } else
         {
             List<int> seen = new List<int>();
@@ -41,7 +41,7 @@ public class wandAttack : MonoBehaviour
                     }
                 } while (true);
 
-                MagicBall bullet = Instantiate<MagicBall>(weapon.magicBall, new Vector3(gameObject.transform.position.x + rnd * 1.1f * GetComponent<PlayerController>().GetDirection(), gameObject.transform.position.y + 50, gameObject.transform.position.z), Quaternion.identity);
+                MagicBall bullet = Instantiate<MagicBall>(weapon.magicBall, new Vector3(gameObject.transform.position.x + rnd * 1.1f * PlayerController.Instance.GetDirection(), gameObject.transform.position.y + 50, gameObject.transform.position.z), Quaternion.identity);
                 bullet.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(10, -projectileSpeed, 0);
             }
         }

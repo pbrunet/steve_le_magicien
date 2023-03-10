@@ -11,12 +11,6 @@ public class BestiaireUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI desc;
     [SerializeField] private GameObject enemyImg;
-    [SerializeField] private float duration;
-    [SerializeField] private List<Sprite> sprites = new List<Sprite>();
-
-    private float current = 0;
-    private bool next = true;
-    private bool inProgress = false;
 
     private int currentPage = 0;
 
@@ -35,7 +29,6 @@ public class BestiaireUI : MonoBehaviour
     private void DisplayData()
     {
         enemyImg.SetActive(true);
-        enemyImg.GetComponent<Image>().sprite = CampaignManager.Instance.AllMonsters[currentPage].monsterImg;
         title.text = CampaignManager.Instance.AllMonsters[currentPage].monsterName;
         desc.text = CampaignManager.Instance.AllMonsters[currentPage].monsterDesc;
     }
@@ -43,58 +36,19 @@ public class BestiaireUI : MonoBehaviour
 
     public void GoToNextPage()
     {
-        if (!inProgress)
+        if (currentPage < CampaignManager.Instance.AllMonsters.Count - 1)
         {
-            if (currentPage < CampaignManager.Instance.AllMonsters.Count - 1)
-            {
-                inProgress = true;
-                current = 0;
-                next = true;
-                currentPage++;
-                HideData();
-            }
+            GetComponent<Animator>().Play("NextPage");
+            currentPage++;
         }
     }
 
     public void GoToBackPage()
     {
-        if (!inProgress)
+        if (currentPage > 0)
         {
-            if (currentPage > 0)
-            {
-                inProgress = true;
-                current = duration - (duration / sprites.Count);
-                next = false;
-                currentPage--;
-                HideData();
-            }
-        }
-    }
-
-    private void Update()
-    {
-        if (inProgress)
-        {
-            float step = duration / sprites.Count;
-            Debug.Log((int)(current / step));
-            Debug.Log(step);
-            Debug.Log(current / step);
-            bookImg.GetComponent<Image>().sprite = sprites[(int)(current / step)];
-
-            if (next)
-            {
-                current += Time.deltaTime;
-            }
-            else
-            {
-                current -= Time.deltaTime;
-            }
-
-            if (current < 0 || current >= duration)
-            {
-                inProgress = false;
-                DisplayData();
-            }
+            GetComponent<Animator>().Play("PreviousPage");
+            currentPage--;
         }
     }
 }

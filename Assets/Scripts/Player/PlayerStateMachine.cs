@@ -81,23 +81,21 @@ public class PlayerState : FSM
 public class PlayerStateGrounded : PlayerState
 {
     private Rigidbody2D rb;
-    private PlayerController pc;
 
     public PlayerStateGrounded(GameObject gameObject) : base(gameObject)
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        pc = gameObject.GetComponent<PlayerController>();
     }
 
     protected override void Init()
     {
         base.Init();
-        pc.OnJumpCB += OnJumpPressed;
+        PlayerController.Instance.OnJumpCB += OnJumpPressed;
     }
 
     protected override void Update()
     {
-        float currentSpeed = pc.GetCurrentSpeed();
+        float currentSpeed = PlayerController.Instance.GetCurrentSpeed();
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
         FixVelocityWithContact();
 
@@ -117,34 +115,28 @@ public class PlayerStateGrounded : PlayerState
 
     private void OnJumpPressed()
     {
-        rb.velocity = new Vector2(rb.velocity.x, Mathf.Min(rb.velocity.y + pc.JumpSpeed, pc.JumpSpeed));
+        rb.velocity = new Vector2(rb.velocity.x, Mathf.Min(rb.velocity.y + PlayerController.Instance.JumpSpeed, PlayerController.Instance.JumpSpeed));
     }
 
     protected override void Exit()
     {
         base.Exit();
-        pc.OnJumpCB -= OnJumpPressed;
+        PlayerController.Instance.OnJumpCB -= OnJumpPressed;
     }
 }
 
 public class PlayerStateInAir : PlayerState
 {
     private Rigidbody2D rb;
-    private PlayerController pc;
 
     public PlayerStateInAir(GameObject gameObject) : base(gameObject)
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        pc = gameObject.GetComponent<PlayerController>();
-    }
-
-    protected override void Init()
-    {
     }
 
     protected override void Update()
     {
-        float currentSpeed = pc.GetCurrentSpeed();
+        float currentSpeed = PlayerController.Instance.GetCurrentSpeed();
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
         FixVelocityWithContact();
 
