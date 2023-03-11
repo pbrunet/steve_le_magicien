@@ -13,9 +13,7 @@ public class LevelGenerator : MonoBehaviour
     int RemainingNumCells;
     [SerializeField] string nextLevel = "";
     [SerializeField] GoToLevel nextLevelPrefab;
-
-    private float xSize = 90f;
-    private float ySize = 60f;
+    [SerializeField] private Vector2 cellSize = new Vector2(90f, 60f);
 
 
     private GeneratedCell[][] grid;
@@ -41,7 +39,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 if (i == NumCells / 2 && j == NumCells / 2) continue; // This is the seed!
                 if (grid[i][j] == null) continue;
-                Instantiate(grid[i][j], new Vector3((i - NumCells / 2) * xSize, (j - NumCells / 2) * ySize, gameObject.transform.position.z), gameObject.transform.rotation, gameObject.transform);
+                Instantiate(grid[i][j], new Vector3((i - NumCells / 2) * cellSize.x, (j - NumCells / 2) * cellSize.y, gameObject.transform.position.z), gameObject.transform.rotation, gameObject.transform);
             }
         }
 
@@ -292,7 +290,7 @@ public class LevelGenerator : MonoBehaviour
 
         Tuple<int, int> cellWithExit = Candidate[UnityEngine.Random.Range(0, Candidate.Count)];
         GeneratedCell genWithExit = grid[cellWithExit.Item1][cellWithExit.Item2];
-        GoToLevel spawnedNextLevel = Instantiate<GoToLevel>(nextLevelPrefab, new Vector3((cellWithExit.Item1 - NumCells / 2) * xSize + genWithExit.possibleExitPos.x + nextLevelPrefab.transform.position.x, (cellWithExit.Item2 - NumCells / 2) * ySize + genWithExit.possibleExitPos.y + nextLevelPrefab.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation, gameObject.transform);
+        GoToLevel spawnedNextLevel = Instantiate<GoToLevel>(nextLevelPrefab, new Vector3((cellWithExit.Item1 - NumCells / 2) * cellSize.x + genWithExit.possibleExitPos.x + nextLevelPrefab.transform.position.x, (cellWithExit.Item2 - NumCells / 2) * cellSize.y + genWithExit.possibleExitPos.y + nextLevelPrefab.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation, gameObject.transform);
         spawnedNextLevel.SetNextLevel(nextLevel);
 
     }

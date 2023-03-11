@@ -166,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2491dd22031b5748a42483cec6896eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionAsset: {fileID: -944628639613478452, guid: 63a2efc9a7e29534da472167c223a0f7, type: 3}
 --- !u!1 &1378519992434596343
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2491dd22031b5748a42483cec6896eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionAsset: {fileID: -944628639613478452, guid: 63a2efc9a7e29534da472167c223a0f7, type: 3}
 --- !u!1 &1378519992469826042
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2491dd22031b5748a42483cec6896eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionAsset: {fileID: -944628639613478452, guid: 63a2efc9a7e29534da472167c223a0f7, type: 3}
 --- !u!1 &1378519992539454075
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2491dd22031b5748a42483cec6896eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionAsset: {fileID: -944628639613478452, guid: 63a2efc9a7e29534da472167c223a0f7, type: 3}
 --- !u!1 &1378519992768501030
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2491dd22031b5748a42483cec6896eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionAsset: {fileID: -944628639613478452, guid: 63a2efc9a7e29534da472167c223a0f7, type: 3}
 --- !u!1 &1378519993357242573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,7 +1216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2491dd22031b5748a42483cec6896eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionAsset: {fileID: -944628639613478452, guid: 63a2efc9a7e29534da472167c223a0f7, type: 3}
 --- !u!1 &8258928551075696555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5019809262210275147, guid: 465c6a1d625939d459b2bfaf6ec890a8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5019809262210275147, guid: 465c6a1d625939d459b2bfaf6ec890a8, type: 3}
       propertyPath: m_LocalRotation.w

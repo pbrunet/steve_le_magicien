@@ -10,8 +10,8 @@ public class Patrol : MonoBehaviour
 
     public void Start()
     {
-        for(int i=0; i<waypoints.Count; i++) {
-            waypoints[i] = transform.parent.TransformPoint(waypoints[i]);
-        }
+    //    for(int i=0; i<waypoints.Count; i++) {
+    //        waypoints[i] = transform.TransformPoint(waypoints[i]);
+    //    }
     }
 }
