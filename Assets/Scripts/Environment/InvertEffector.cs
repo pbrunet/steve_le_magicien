@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public class InvertEffector : MonoBehaviour
 {
-    [SerializeField] private InputActionAsset actionAsset;
-
     private bool inCollider;
     private bool shouldExit;
     void Start()
@@ -15,7 +13,7 @@ public class InvertEffector : MonoBehaviour
         shouldExit = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         inCollider = true;
     }

@@ -133,14 +133,19 @@ public class PlayerData : Singleton<PlayerData>
         UIManager.Instance.inGameHUD.UpdateGhostGUI();
     }
 
-    public bool DoubleJumpUnlocked()
+    public int GetCurrentUpgradeLevel(PlayerUpgradeId upgradeId)
     {
         int value;
-        return playerUpgradeLevel.TryGetValue(PlayerUpgradeId.DOUBLE_JUMP, out value) && value > 0;
+        playerUpgradeLevel.TryGetValue(PlayerUpgradeId.DOUBLE_JUMP, out value);
+        return value;
+    }
+
+    public bool DoubleJumpUnlocked()
+    {
+        return GetCurrentUpgradeLevel(PlayerUpgradeId.DOUBLE_JUMP) > 0;
     }
     public bool CanDash()
     {
-        int value;
-        return playerUpgradeLevel.TryGetValue(PlayerUpgradeId.DASH, out value) && value > 0;
+        return GetCurrentUpgradeLevel(PlayerUpgradeId.DASH) > 0;
     }
 }

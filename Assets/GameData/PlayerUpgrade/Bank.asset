@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4c978df8c0a4f4a8e0a2cde97407a3, type: 3}
+  m_Name: Bank
+  m_EditorClassIdentifier: 
+  upgradeImg: {fileID: 21300000, guid: abf39340734a31649b1aa0eb1a48377b, type: 3}
+  upgradeName: Bank
+  cost: 0a000000
+  kind: 0
