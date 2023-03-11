@@ -8,6 +8,7 @@ public class TV : Interactable
 
     public override void DoInteract(InputAction.CallbackContext cb)
     {
+        base.DoInteract(cb);
         UIManager.Instance.OpenSelfImprovement();
     }
 }

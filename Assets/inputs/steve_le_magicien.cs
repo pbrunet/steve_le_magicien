@@ -91,15 +91,6 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""f9bfa7c4-57f4-43ab-b9d7-7ddcb1c7f7e7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""OpenTV"",
                     ""type"": ""Button"",
                     ""id"": ""3922d741-efd7-4bfe-a0a4-625a36c8bf2b"",
@@ -125,6 +116,15 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Value"",
+                    ""id"": ""336f1f0d-9faf-4967-8c22-899464bc8e55"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -273,17 +273,6 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3336748e-c418-4be1-bc23-ab6d18debcd8"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""10091422-fd47-49d5-9ec9-0c54126b01fb"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
@@ -314,6 +303,50 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
                     ""action"": ""ImproveWand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""fb89d379-b038-47d6-9e98-44d27810c22a"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""19da0a67-270f-48ec-b81b-adfdf58e5200"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""7732bb6f-48f5-461c-82cb-0c4619398b05"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""0b39f61f-e865-4581-bebb-be438d5dc5af"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -934,10 +967,10 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_ChangeWeapon = m_Player.FindAction("ChangeWeapon", throwIfNotFound: true);
         m_Player_OpenEncyclopedia = m_Player.FindAction("Open Encyclopedia", throwIfNotFound: true);
-        m_Player_Newaction = m_Player.FindAction("New action", throwIfNotFound: true);
         m_Player_OpenTV = m_Player.FindAction("OpenTV", throwIfNotFound: true);
         m_Player_Speak = m_Player.FindAction("Speak", throwIfNotFound: true);
         m_Player_ImproveWand = m_Player.FindAction("ImproveWand", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1019,10 +1052,10 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_ChangeWeapon;
     private readonly InputAction m_Player_OpenEncyclopedia;
-    private readonly InputAction m_Player_Newaction;
     private readonly InputAction m_Player_OpenTV;
     private readonly InputAction m_Player_Speak;
     private readonly InputAction m_Player_ImproveWand;
+    private readonly InputAction m_Player_Dash;
     public struct PlayerActions
     {
         private @Steve_le_magicien m_Wrapper;
@@ -1034,10 +1067,10 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @ChangeWeapon => m_Wrapper.m_Player_ChangeWeapon;
         public InputAction @OpenEncyclopedia => m_Wrapper.m_Player_OpenEncyclopedia;
-        public InputAction @Newaction => m_Wrapper.m_Player_Newaction;
         public InputAction @OpenTV => m_Wrapper.m_Player_OpenTV;
         public InputAction @Speak => m_Wrapper.m_Player_Speak;
         public InputAction @ImproveWand => m_Wrapper.m_Player_ImproveWand;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1068,9 +1101,6 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
                 @OpenEncyclopedia.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenEncyclopedia;
                 @OpenEncyclopedia.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenEncyclopedia;
                 @OpenEncyclopedia.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenEncyclopedia;
-                @Newaction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNewaction;
                 @OpenTV.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenTV;
                 @OpenTV.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenTV;
                 @OpenTV.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenTV;
@@ -1080,6 +1110,9 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
                 @ImproveWand.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnImproveWand;
                 @ImproveWand.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnImproveWand;
                 @ImproveWand.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnImproveWand;
+                @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1105,9 +1138,6 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
                 @OpenEncyclopedia.started += instance.OnOpenEncyclopedia;
                 @OpenEncyclopedia.performed += instance.OnOpenEncyclopedia;
                 @OpenEncyclopedia.canceled += instance.OnOpenEncyclopedia;
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
                 @OpenTV.started += instance.OnOpenTV;
                 @OpenTV.performed += instance.OnOpenTV;
                 @OpenTV.canceled += instance.OnOpenTV;
@@ -1117,6 +1147,9 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
                 @ImproveWand.started += instance.OnImproveWand;
                 @ImproveWand.performed += instance.OnImproveWand;
                 @ImproveWand.canceled += instance.OnImproveWand;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -1313,10 +1346,10 @@ public partial class @Steve_le_magicien : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnChangeWeapon(InputAction.CallbackContext context);
         void OnOpenEncyclopedia(InputAction.CallbackContext context);
-        void OnNewaction(InputAction.CallbackContext context);
         void OnOpenTV(InputAction.CallbackContext context);
         void OnSpeak(InputAction.CallbackContext context);
         void OnImproveWand(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

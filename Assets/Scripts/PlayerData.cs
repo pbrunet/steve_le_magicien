@@ -35,6 +35,9 @@ public class PlayerData : Singleton<PlayerData>
     private List<WeaponUpgradeData> buyWeapons = new List<WeaponUpgradeData>();
     public List<WeaponUpgradeData> BuyWeapons { get { return buyWeapons; } }
 
+    [Header("PlayerUpgrade")]
+    private Dictionary<PlayerUpgradeId, int> playerUpgradeLevel  = new Dictionary<PlayerUpgradeId, int>();
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -42,6 +45,8 @@ public class PlayerData : Singleton<PlayerData>
         garbage = PlayerPrefs.GetInt("garbage", initGarbage);
         ghost = PlayerPrefs.GetInt("ghost", initGhost);
         life = PlayerPrefs.GetInt("life", initLife);
+
+        // Serialize weapon information
         foreach (WeaponUpgradeData weapon in WeaponUpgradeManager.Instance.AllWeapons) {
             int weaponState = PlayerPrefs.GetInt(weapon.weaponName, 0);
             if (Convert.ToBoolean(weaponState & 1))
@@ -63,6 +68,13 @@ public class PlayerData : Singleton<PlayerData>
             equipedWeapon = defaultWeapon;
             buyWeapons.Add(defaultWeapon);
             unlockedWeapons.Add(defaultWeapon);
+        }
+
+        // Serialize Player upgrade information
+        foreach (PlayerUpgradeData upgrade in PlayerUpgrade.Instance.AllUpgrades)
+        {
+            int upgradeLevel = PlayerPrefs.GetInt("PlayerUpgrade" + upgrade.kind, 0);
+            playerUpgradeLevel.Add(upgrade.kind, upgradeLevel);
         }
     }
 
@@ -87,7 +99,11 @@ public class PlayerData : Singleton<PlayerData>
         PlayerPrefs.SetInt("life", life);
         foreach (WeaponUpgradeData weapon in WeaponUpgradeManager.Instance.AllWeapons)
         {
-            PlayerPrefs.SetInt(weapon.weaponName, (unlockedWeapons.Contains(weapon) ? 1 : 0) | ((buyWeapons.Contains(weapon) ? 1 : 0) << 1) | (((weapon is WeaponUpgradeData equipedWeapon) ? 1 : 0) << 2) );
+            PlayerPrefs.SetInt(weapon.weaponName, (unlockedWeapons.Contains(weapon) ? 1 : 0) | ((buyWeapons.Contains(weapon) ? 1 : 0) << 1) | (((weapon is WeaponUpgradeData equipedWeapon) ? 1 : 0) << 2));
+        }
+        foreach (KeyValuePair<PlayerUpgradeId, int> element in playerUpgradeLevel)
+        {
+            PlayerPrefs.SetInt("PlayerUpgrade" + element.Key, element.Value);
         }
         PlayerPrefs.Save();
     }
@@ -115,5 +131,16 @@ public class PlayerData : Singleton<PlayerData>
         UIManager.Instance.inGameHUD.UpdadeBeerGUI();
         UIManager.Instance.inGameHUD.UpdateGarbageGUI();
         UIManager.Instance.inGameHUD.UpdateGhostGUI();
+    }
+
+    public bool DoubleJumpUnlocked()
+    {
+        int value;
+        return playerUpgradeLevel.TryGetValue(PlayerUpgradeId.DOUBLE_JUMP, out value) && value > 0;
+    }
+    public bool CanDash()
+    {
+        int value;
+        return playerUpgradeLevel.TryGetValue(PlayerUpgradeId.DASH, out value) && value > 0;
     }
 }

@@ -5005,6 +5005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057778ae3130a544eb91d0b7c45e8318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashDistance: 15
 --- !u!114 &8410685758610026604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5063,7 +5064,7 @@ MonoBehaviour:
   - {x: -1.8170776, y: -3.9791799, z: 0}
   m_ShapePathHash: -638696789
   m_Mesh: {fileID: 0}
-  m_InstanceId: 50404
+  m_InstanceId: 173788
 --- !u!61 &1711046824
 BoxCollider2D:
   m_ObjectHideFlags: 0
