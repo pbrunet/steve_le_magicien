@@ -95,7 +95,7 @@ public class PlayerStateGrounded : PlayerState
 
     protected override void Update()
     {
-        float currentSpeed = PlayerController.Instance.GetCurrentSpeed();
+        float currentSpeed = PlayerController.Instance.GetCurrentSpeed().x;
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
         FixVelocityWithContact();
 
@@ -136,7 +136,7 @@ public class PlayerStateInAir : PlayerState
 
     protected override void Update()
     {
-        float currentSpeed = PlayerController.Instance.GetCurrentSpeed();
+        float currentSpeed = PlayerController.Instance.GetCurrentSpeed().x;
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
         FixVelocityWithContact();
 

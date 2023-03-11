@@ -61,11 +61,11 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
-    public float GetCurrentSpeed()
+    public Vector2 GetCurrentSpeed()
     {
         InputActionMap actionMap = actionAsset.FindActionMap("Player");
         InputAction move = actionMap.FindAction("Move");
-        return speed * move.ReadValue<float>();
+        return speed * move.ReadValue<Vector2>();
     }
 
     public int GetDirection()

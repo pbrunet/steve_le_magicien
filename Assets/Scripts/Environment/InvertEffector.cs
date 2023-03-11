@@ -11,33 +11,8 @@ public class InvertEffector : MonoBehaviour
     private bool shouldExit;
     void Start()
     {
-
-
-        InputActionMap actionMap = actionAsset.FindActionMap("Player");
-        actionMap.Enable();
-
-        InputAction goDown = actionMap.FindAction("Attack");
-        goDown.started += GoDown_started;
-        goDown.canceled += GoDown_canceled;
-
         inCollider = false;
         shouldExit = false;
-    }
-
-    private void GoDown_canceled(InputAction.CallbackContext obj)
-    {
-        if (!inCollider)
-        {
-            GetComponent<PlatformEffector2D>().rotationalOffset = 0;
-        } else
-        {
-            shouldExit = true;
-        }
-    }
-
-    private void GoDown_started(InputAction.CallbackContext obj)
-    {
-        GetComponent<PlatformEffector2D>().rotationalOffset = 180;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -53,5 +28,26 @@ public class InvertEffector : MonoBehaviour
             GetComponent<PlatformEffector2D>().rotationalOffset = 0;
             shouldExit = false;
         }
+    }
+
+    private void Update()
+    {
+        Vector2 dir = PlayerController.Instance.GetCurrentSpeed().normalized;
+
+        if(dir.y < -0.5)
+        {
+            GetComponent<PlatformEffector2D>().rotationalOffset = 180;
+        } else
+        {
+            if (!inCollider)
+            {
+                GetComponent<PlatformEffector2D>().rotationalOffset = 0;
+            }
+            else
+            {
+                shouldExit = true;
+            }
+        }
+
     }
 }

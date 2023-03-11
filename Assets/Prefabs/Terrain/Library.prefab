@@ -125,6 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionAsset: {fileID: -944628639613478452, guid: 63a2efc9a7e29534da472167c223a0f7, type: 3}
-  actionName: SecondaryInteract
+  actionName: Open Encyclopedia
   tooltipPrefab: {fileID: 4962178478514486997, guid: dea03502f04986645aa241b0e3fac526, type: 3}
   textOffset: {x: 10, y: 8, z: 0}

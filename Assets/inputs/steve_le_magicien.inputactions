@@ -58,6 +58,51 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Open Encyclopedia",
+                    "type": "Button",
+                    "id": "7d192f2e-b53e-45a7-907c-769fe3834499",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "f9bfa7c4-57f4-43ab-b9d7-7ddcb1c7f7e7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenTV",
+                    "type": "Button",
+                    "id": "3922d741-efd7-4bfe-a0a4-625a36c8bf2b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Speak",
+                    "type": "Button",
+                    "id": "423b996d-f702-4e64-8997-4c0d695645cf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ImproveWand",
+                    "type": "Button",
+                    "id": "fccc8027-994e-4ec3-b8df-d635ff608688",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -75,7 +120,7 @@
                 {
                     "name": "WASD",
                     "id": "00ca640b-d935-4593-8157-c05846ea39b3",
-                    "path": "1DAxis",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -84,9 +129,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Negative",
+                    "name": "Up",
                     "id": "e2062cb9-1b15-46a2-838c-2f8d72a0bdd9",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -95,9 +140,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Negative",
+                    "name": "Down",
                     "id": "e8f6512f-75c0-4f81-8a1d-cc3b5feff96c",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -106,9 +151,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Positive",
+                    "name": "Left",
                     "id": "8180e8bd-4097-4f4e-ab88-4523101a6ce9",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -117,7 +162,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Positive",
+                    "name": "Right",
                     "id": "111a35dc-c743-4b34-a4d7-6f5e52ab36b1",
                     "path": "<Keyboard>/d",
                     "interactions": "",
@@ -190,6 +235,61 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "ChangeWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f6417fc7-c1e4-4482-8758-7b1fee74d246",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Open Encyclopedia",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3336748e-c418-4be1-bc23-ab6d18debcd8",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "10091422-fd47-49d5-9ec9-0c54126b01fb",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenTV",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39fcaca8-fa7c-45c5-a6ca-7f59f6ea4cbf",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Speak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccef0dac-82cf-4ba7-9451-089f3b31cb0e",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ImproveWand",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
