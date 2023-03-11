@@ -10,7 +10,7 @@ public class BestiaireUI : MonoBehaviour
     [SerializeField] private GameObject bookImg;
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI desc;
-    [SerializeField] private GameObject enemyImg;
+    [SerializeField] private Image enemyImg;
 
     private int currentPage = 0;
 
@@ -24,11 +24,12 @@ public class BestiaireUI : MonoBehaviour
     {
         title.text = "";
         desc.text = "";
-        enemyImg.SetActive(false);
+        enemyImg.gameObject.SetActive(false);
     }
     private void DisplayData()
     {
-        enemyImg.SetActive(true);
+        enemyImg.gameObject.SetActive(true);
+        enemyImg.sprite = CampaignManager.Instance.AllMonsters[currentPage].monsterImg;
         title.text = CampaignManager.Instance.AllMonsters[currentPage].monsterName;
         desc.text = CampaignManager.Instance.AllMonsters[currentPage].monsterDesc;
     }
@@ -45,6 +46,8 @@ public class BestiaireUI : MonoBehaviour
 
     public void Open()
     {
+        PlayerController.Instance.OnDisablePlayer();
+        Time.timeScale = 0f;
         gameObject.SetActive(true);
         GetComponent<Animator>().Play("Open");
     }
@@ -55,6 +58,8 @@ public class BestiaireUI : MonoBehaviour
     }
     public void OnClose()
     {
+        PlayerController.Instance.OnEnablePlayer();
+        Time.timeScale = 1f;
         gameObject.SetActive(false);
     }
 
