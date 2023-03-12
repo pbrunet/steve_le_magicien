@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
 
     private void HandleResumeClicked()
     {
-        //GameManager.Instance.TogglePause();
+        gameObject.SetActive(false);
     }
 
     private void HandleQuitClicked()

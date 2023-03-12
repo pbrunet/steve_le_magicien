@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
@@ -16,14 +17,39 @@ public class PlayerController : Singleton<PlayerController>
 
     public event System.Action OnJumpCB;
     public event System.Action OnDashCB;
+    public event System.Action OnPauseCB;
 
     private void OnEnable()
     {
+        OnEnableUI();
         OnEnablePlayer();
     }
+
     private void OnDisable()
     {
+        OnDisableUI();
         OnDisablePlayer();
+    }
+    private void OnEnableUI()
+    {
+        InputActionMap actionMap = actionAsset.FindActionMap("General");
+        actionMap.Enable();
+
+        // Handle move
+        InputAction pause = actionMap.FindAction("Pause");
+        pause.Enable();
+        pause.performed += OnPause;
+    }
+
+    private void OnDisableUI()
+    {
+        InputActionMap actionMap = actionAsset.FindActionMap("General");
+        actionMap.Disable();
+
+        // Handle move
+        InputAction pause = actionMap.FindAction("Pause");
+        pause.Disable();
+        pause.performed -= OnPause;
     }
 
     public void OnDisablePlayer()
@@ -63,6 +89,14 @@ public class PlayerController : Singleton<PlayerController>
         InputAction dash = actionMap.FindAction("Dash");
         dash.Enable();
         dash.performed += OnDash;
+    }
+
+    private void OnPause(InputAction.CallbackContext ctx)
+    {
+        if (OnPauseCB != null)
+        {
+            OnPauseCB();
+        }
     }
 
     private void OnJump(InputAction.CallbackContext ctx)

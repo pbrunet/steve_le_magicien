@@ -39,6 +39,8 @@ public class UIManager : Singleton<UIManager>
 
         mainMenu.OnFadeOutCompleted.AddListener(HandleOnFadeOutCompleted);
         GameManager.Instance.OnGameStateChanged.AddListener(HandleGameStateChanged);
+
+        PlayerController.Instance.OnPauseCB += OnPause;
     }
 
     private void HandleOnFadeOutCompleted(bool isFadeOut)
@@ -69,6 +71,11 @@ public class UIManager : Singleton<UIManager>
     public void OpenSelfImprovement()
     {
         selfImproveUI.gameObject.SetActive(true);
+    }
+
+    private void OnPause()
+    {
+        pauseMenu.gameObject.SetActive(true);
     }
 
     public void ToggleSpeed()
