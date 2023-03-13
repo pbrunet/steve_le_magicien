@@ -14,12 +14,11 @@ GameObject:
   - component: {fileID: 2961124488362473642}
   - component: {fileID: 4138791804088601770}
   - component: {fileID: 1290125408}
-  - component: {fileID: 1290125414}
-  - component: {fileID: 2965136284659366104}
   - component: {fileID: 1290125415}
   - component: {fileID: 1290125417}
+  - component: {fileID: 6841289993069166241}
   m_Layer: 6
-  m_Name: Enemy_explode
+  m_Name: Enemy_range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ef7aa25c1f258ff4fb9c254c111c9389, type: 3}
-  m_Color: {r: 0.55602527, g: 0.990566, b: 0.60577947, a: 1}
+  m_Color: {r: 0.31076446, g: 0.3097188, b: 0.754717, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -157,35 +156,6 @@ MonoBehaviour:
   - {x: -82.98503, y: -7.0550437}
   distTolerance: 5
   xSpeed: 10
---- !u!114 &1290125414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702613825988671010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d5c5cc18f224414198916974ff5cd77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xSpeed: 20
-  maxDistance: 30
-  startDistance: 20
---- !u!114 &2965136284659366104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702613825988671010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c582846b6a9c2c64d9c8484a921790cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionRange: 50
-  damageOnExplode: 80
 --- !u!114 &1290125415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +196,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.96896, y: 10.878285}
   m_EdgeRadius: 0
+--- !u!114 &6841289993069166241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702613825988671010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff98c630285fcc14daa755900a0cbe08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 8461130168212518419, guid: 8829c3f87eb446448afcdc7dedaff608, type: 3}
+  attackDistance: 100
+  projectileSpeed: 5
 --- !u!1001 &2961124488089827682
 PrefabInstance:
   m_ObjectHideFlags: 0

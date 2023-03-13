@@ -55,7 +55,8 @@ public class Enemy1StatePatrol : Enemy1State
         {
             // move left
             rb.velocity = new Vector2(pat.xSpeed, rb.velocity.y);
-        } else
+        }
+        else
         {
             rb.velocity = new Vector2(-pat.xSpeed, rb.velocity.y);
             // move right
@@ -67,11 +68,17 @@ public class Enemy1StatePatrol : Enemy1State
             nextWaypoint = (nextWaypoint + 1) % pat.waypoints.Count;
         }
 
-        
+
         float distToPlayer = Vector2.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, gameObject.transform.position);
         if (gameObject.GetComponent<Stalk>() != null && distToPlayer < gameObject.GetComponent<Stalk>().startDistance)
         {
             base.nextState = new Enemy1StateStalk(gameObject, GameObject.FindGameObjectWithTag("Player"));
+        }
+
+        EnemyRangeAttack ratt = gameObject.GetComponent<EnemyRangeAttack>();
+        if (ratt && ratt.IsReady())
+        {
+            ratt.Attack();
         }
     }
 }
