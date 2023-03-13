@@ -81,6 +81,11 @@ public class PlayerData : Singleton<PlayerData>
     public int DamageBy(int _life)
     {
         this.life -= _life;
+        if(this.life <= 0)
+        {
+            life = initLife;
+            GameManager.Instance.Restart();
+        }
         UIManager.Instance.inGameHUD.UpdadeLifeGUI();
         return this.life;
     }
