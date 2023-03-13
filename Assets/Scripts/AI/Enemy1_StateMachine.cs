@@ -111,6 +111,12 @@ public class Enemy1StateStalk : Enemy1State
         {
             base.nextState = new Enemy1StateAttackCAC(gameObject, target);
         }
+
+        if (gameObject.GetComponent<EnemyExplode>() != null && Vector2.Distance(target.transform.position, rb.position) < gameObject.GetComponent<EnemyExplode>().explosionRange)
+        {
+            target.GetComponent<Damageable>().DealDamage(gameObject.GetComponent<EnemyExplode>().damageOnExplode, gameObject);
+            gameObject.GetComponent<Damageable>().DealDamage(gameObject.GetComponent<Damageable>().Life, gameObject);
+        }
     }
 
 }

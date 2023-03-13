@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 4138791804088601770}
   - component: {fileID: 1290125408}
   - component: {fileID: 1290125414}
+  - component: {fileID: 2965136284659366104}
   - component: {fileID: 1290125415}
-  - component: {fileID: 1290125416}
   - component: {fileID: 1290125417}
   m_Layer: 6
-  m_Name: Enemy_1
+  m_Name: Enemy_explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,6 +172,20 @@ MonoBehaviour:
   xSpeed: 20
   maxDistance: 30
   startDistance: 20
+--- !u!114 &2965136284659366104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702613825988671010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c582846b6a9c2c64d9c8484a921790cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRange: 50
+  damageOnExplode: 80
 --- !u!114 &1290125415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,18 +200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Beer: 1
   Garbage: 2
---- !u!114 &1290125416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702613825988671010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4fa8a2a2766ae4897ea1ad7b1ab36c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1290125417
 BoxCollider2D:
   m_ObjectHideFlags: 0
