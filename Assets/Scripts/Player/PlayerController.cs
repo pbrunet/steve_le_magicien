@@ -18,6 +18,8 @@ public class PlayerController : Singleton<PlayerController>
     public event System.Action OnJumpCB;
     public event System.Action OnDashCB;
     public event System.Action OnPauseCB;
+    public event System.Action OnAttackCB;
+    public event System.Action OnNextWeaponCB;
 
     private void OnEnable()
     {
@@ -70,6 +72,14 @@ public class PlayerController : Singleton<PlayerController>
         InputAction dash = actionMap.FindAction("Dash");
         dash.Disable();
         dash.started -= OnDash;
+
+        InputAction action = actionMap.FindAction("Attack");
+        action.Disable();
+        action.started -= OnAttack;
+
+        InputAction weaponAction = actionMap.FindAction("ChangeWeapon");
+        weaponAction.Disable();
+        weaponAction.started -= OnNextWeapon;
     }
 
     public void OnEnablePlayer() {
@@ -89,6 +99,14 @@ public class PlayerController : Singleton<PlayerController>
         InputAction dash = actionMap.FindAction("Dash");
         dash.Enable();
         dash.performed += OnDash;
+
+        InputAction action = actionMap.FindAction("Attack");
+        action.Enable();
+        action.started += OnAttack;
+
+        InputAction weaponAction = actionMap.FindAction("ChangeWeapon");
+        weaponAction.Enable();
+        weaponAction.started += OnNextWeapon;
     }
 
     private void OnPause(InputAction.CallbackContext ctx)
@@ -104,6 +122,22 @@ public class PlayerController : Singleton<PlayerController>
         if (OnJumpCB != null)
         {
             OnJumpCB();
+        }
+    }
+
+    private void OnAttack(InputAction.CallbackContext ctx)
+    {
+        if (OnAttackCB != null)
+        {
+            OnAttackCB();
+        }
+    }
+
+    private void OnNextWeapon(InputAction.CallbackContext ctx)
+    {
+        if (OnNextWeaponCB != null)
+        {
+            OnNextWeaponCB();
         }
     }
 

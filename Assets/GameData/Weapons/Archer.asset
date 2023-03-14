@@ -15,6 +15,6 @@ MonoBehaviour:
   weaponImg: {fileID: 21300000, guid: 51d28988ae152d54fa132adc5d73d74e, type: 3}
   weaponName: Baguette archer
   cost: 0
-  magicBall: {fileID: 8461130168212518419, guid: 50902edee97d314428accaede1f2a77c, type: 3}
-  kind: 0
+  magicBall: {fileID: 3060011136226599543, guid: a9a16442959894e4694155311cdcba36, type: 3}
+  kind: 2
   requirements: []

@@ -30,7 +30,7 @@ public class PlayerState : FSM
     {
         float distToGround = sm.gameObject.GetComponent<Collider2D>().bounds.extents.y;
         Debug.DrawRay(sm.gameObject.transform.position, -Vector3.up * distToGround, Color.red);
-        Debug.DrawRay(sm.gameObject.transform.position - Vector3.up * distToGround , -Vector3.up * 0.1f, Color.blue);
+        Debug.DrawRay(sm.gameObject.transform.position - Vector3.up * distToGround, -Vector3.up * 0.1f, Color.blue);
         ContactFilter2D filter = new ContactFilter2D();
         filter.useLayerMask = true;
         filter.useTriggers = false;
@@ -54,13 +54,14 @@ public class PlayerState : FSM
                 continue;
             }
 
-            if(Mathf.Abs(hit.normal.x) < 0.1f || Mathf.Sign(hit.normal.x) == Mathf.Sign(sm.gameObject.GetComponent<Rigidbody2D>().velocity.x))
+            if (Mathf.Abs(hit.normal.x) < 0.1f || Mathf.Sign(hit.normal.x) == Mathf.Sign(sm.gameObject.GetComponent<Rigidbody2D>().velocity.x))
             {
                 continue;
             }
 
             float distToGround = sm.gameObject.GetComponent<Collider2D>().bounds.extents.y;
-            if ((hit.point.y + distToGround - hit.centroid.y) < 0.1f) {
+            if ((hit.point.y + distToGround - hit.centroid.y) < 0.1f)
+            {
                 Vector2 pos = sm.gameObject.GetComponent<Rigidbody2D>().transform.position;
                 pos.y += 0.1f;
                 sm.gameObject.GetComponent<Rigidbody2D>().MovePosition(pos);
@@ -78,6 +79,10 @@ public class PlayerState : FSM
 public class PlayerStateGrounded : PlayerState
 {
     private Rigidbody2D rb;
+    private bool jumpPressed = false;
+    private bool dashPressed = false;
+    private bool attackPressed = false;
+    private bool nextWeaponPressed = false;
 
     public PlayerStateGrounded(PlayerStateMachine sm) : base(sm)
     {
@@ -88,12 +93,43 @@ public class PlayerStateGrounded : PlayerState
     {
         base.Init();
         sm.inDoubleJmp = false;
+        jumpPressed = false;
+        dashPressed = false;
+        attackPressed = false;
+        nextWeaponPressed = false;
         PlayerController.Instance.OnJumpCB += OnJumpPressed;
         PlayerController.Instance.OnDashCB += OnDashPressed;
+        PlayerController.Instance.OnAttackCB += OnAttackPressed;
+        PlayerController.Instance.OnNextWeaponCB += OnNextWeapon;
     }
 
     protected override void Update()
     {
+        if (jumpPressed)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Min(rb.velocity.y + PlayerController.Instance.JumpSpeed, PlayerController.Instance.JumpSpeed));
+            base.nextState = new PlayerStateInAir(sm);
+            return;
+        }
+
+        if (dashPressed)
+        {
+            base.nextState = new PlayerStateDash(sm);
+            return;
+        }
+
+        if (attackPressed)
+        {
+            base.nextState = new PlayerStateAttack(sm);
+            return;
+        }
+
+        if (nextWeaponPressed)
+        {
+            base.nextState = new PlayerStateChangeWeapon(sm);
+            return;
+        }
+
         float currentSpeed = PlayerController.Instance.GetCurrentSpeed().x;
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
         FixVelocityWithContact();
@@ -101,12 +137,13 @@ public class PlayerStateGrounded : PlayerState
         if (currentSpeed < 0)
         {
             sm.gameObject.transform.localScale = new Vector3(-Mathf.Abs(sm.gameObject.transform.localScale.x), sm.gameObject.transform.localScale.y, sm.gameObject.transform.localScale.z);
-        } else if(currentSpeed > 0)
+        }
+        else if (currentSpeed > 0)
         {
             sm.gameObject.transform.localScale = new Vector3(Mathf.Abs(sm.gameObject.transform.localScale.x), sm.gameObject.transform.localScale.y, sm.gameObject.transform.localScale.z);
         }
-        
-        if(!IsGrounded())
+
+        if (!IsGrounded())
         {
             base.nextState = new PlayerStateInAir(sm);
         }
@@ -114,14 +151,21 @@ public class PlayerStateGrounded : PlayerState
 
     private void OnJumpPressed()
     {
-        rb.velocity = new Vector2(rb.velocity.x, Mathf.Min(rb.velocity.y + PlayerController.Instance.JumpSpeed, PlayerController.Instance.JumpSpeed));
+        jumpPressed = true;
+    }
+    private void OnAttackPressed()
+    {
+        attackPressed = true;
+    }
+    private void OnNextWeapon()
+    {
+        nextWeaponPressed = true;
     }
     private void OnDashPressed()
     {
         if (PlayerData.Instance.CanDash())
         {
-            rb.MovePosition(rb.position + new Vector2(Mathf.Sign(sm.gameObject.transform.localScale.x) * sm.dashDistance, 0f));
-            //rb.velocity = new Vector2(rb.velocity.x, Mathf.Min(rb.velocity.y + PlayerController.Instance.JumpSpeed, PlayerController.Instance.JumpSpeed));
+            dashPressed = true;
         }
     }
 
@@ -130,6 +174,112 @@ public class PlayerStateGrounded : PlayerState
         base.Exit();
         PlayerController.Instance.OnJumpCB -= OnJumpPressed;
         PlayerController.Instance.OnDashCB -= OnDashPressed;
+        PlayerController.Instance.OnAttackCB -= OnAttackPressed;
+        PlayerController.Instance.OnNextWeaponCB -= OnNextWeapon;
+    }
+}
+public class PlayerStateDash : PlayerState
+{
+    private Rigidbody2D rb;
+
+    public PlayerStateDash(PlayerStateMachine sm) : base(sm)
+    {
+        rb = sm.gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    protected override void Update()
+    {
+        rb.MovePosition(rb.position + new Vector2(Mathf.Sign(sm.gameObject.transform.localScale.x) * sm.dashDistance, 0f));
+
+        if (IsGrounded())
+        {
+            base.nextState = new PlayerStateGrounded(sm);
+        }
+        else
+        {
+            base.nextState = new PlayerStateInAir(sm);
+        }
+    }
+}
+public class PlayerStateInvoke : PlayerState
+{
+    bool invokeKilled;
+    public PlayerStateInvoke(PlayerStateMachine sm) : base(sm)
+    {
+        invokeKilled = false;
+        Damageable dmg = sm.gameObject.GetComponent<wandAttack>().Invoke().GetComponent<Damageable>();
+        dmg.OnKilled += OnInvokeKilled;
+    }
+
+    private void OnInvokeKilled(GameObject inv)
+    {
+        invokeKilled = true;
+        inv.GetComponent<Damageable>().OnKilled -= OnInvokeKilled;
+    }
+
+    protected override void Update()
+    {
+        if (invokeKilled)
+        {
+            if (IsGrounded())
+            {
+                base.nextState = new PlayerStateGrounded(sm);
+            }
+            else
+            {
+                base.nextState = new PlayerStateInAir(sm);
+            }
+        }
+    }
+}
+
+public class PlayerStateAttack : PlayerState
+{
+    public PlayerStateAttack(PlayerStateMachine sm) : base(sm)
+    {
+    }
+
+    protected override void Update()
+    {
+        if (sm.gameObject.GetComponent<wandAttack>().GetAttackKind() == AttackKind.INVOKE)
+        {
+            base.nextState = new PlayerStateInvoke(sm);
+            return;
+        }
+        else
+        {
+            sm.gameObject.GetComponent<wandAttack>().DoAttack();
+        }
+
+        if (IsGrounded())
+        {
+            base.nextState = new PlayerStateGrounded(sm);
+        }
+        else
+        {
+            base.nextState = new PlayerStateInAir(sm);
+        }
+    }
+}
+public class PlayerStateChangeWeapon : PlayerState
+{
+    public PlayerStateChangeWeapon(PlayerStateMachine sm) : base(sm)
+    {
+    }
+
+    protected override void Update()
+    {
+        PlayerData.Instance.GetNextWeapon();
+        UIManager.Instance.inGameHUD.UpdateWeaponGUI();
+
+        if (IsGrounded())
+        {
+            base.nextState = new PlayerStateGrounded(sm);
+        }
+        else
+        {
+            base.nextState = new PlayerStateInAir(sm);
+        }
     }
 }
 
@@ -170,7 +320,7 @@ public class PlayerStateInAir : PlayerState
     }
     private void OnJumpPressed()
     {
-        if(PlayerData.Instance.DoubleJumpUnlocked() && !sm.inDoubleJmp)
+        if (PlayerData.Instance.DoubleJumpUnlocked() && !sm.inDoubleJmp)
         {
             sm.inDoubleJmp = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Min(rb.velocity.y + PlayerController.Instance.JumpSpeed, PlayerController.Instance.JumpSpeed));

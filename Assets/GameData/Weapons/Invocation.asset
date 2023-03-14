@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponImg: {fileID: 21300000, guid: 59be77fcafa6d9440953cab72ca8488c, type: 3}
   weaponName: Invocation stick
   cost: 250
-  magicBall: {fileID: 0}
-  kind: 0
+  magicBall: {fileID: 3060011136226599543, guid: a9a16442959894e4694155311cdcba36, type: 3}
+  kind: 2
   requirements:
   - {fileID: 11400000, guid: 144895475c4d4f04396eca24d527fce7, type: 2}

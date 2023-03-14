@@ -22,4 +22,17 @@ public class CustomMenu
         PlayerPrefs.SetInt("Fire Stick", 2);
         PlayerPrefs.Save();
     }
+
+    [MenuItem("Tools/BuyAllWeapons")]
+    private static void BuyAllWeapons()
+    {
+        PlayerPrefs.SetInt("Baguette archer", 2);
+        PlayerPrefs.SetInt("Baguette Dégats de zone", 2);
+        PlayerPrefs.SetInt("Invocation stick", 2);
+        PlayerPrefs.SetInt("Baguette Ninja", 2);
+        PlayerPrefs.SetInt("Baguette Normal", 2);
+        PlayerPrefs.SetInt("Baguette original", 2);
+        PlayerPrefs.SetInt("Baguette Viseur", 2);
+        PlayerPrefs.Save();
+    }
 }
