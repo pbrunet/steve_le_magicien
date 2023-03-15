@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponImg: {fileID: 21300000, guid: 51f5793f42652b54db5c6b3fc583f3e9, type: 3}
   weaponName: Baguette Ninja
   cost: 1000
-  magicBall: {fileID: 8461130168212518419, guid: 8829c3f87eb446448afcdc7dedaff608, type: 3}
+  magicBall: {fileID: 4896175736998758789, guid: 8829c3f87eb446448afcdc7dedaff608, type: 3}
   kind: 4
   requirements:
   - {fileID: 11400000, guid: a9f776975bce68244952939051316ea9, type: 2}

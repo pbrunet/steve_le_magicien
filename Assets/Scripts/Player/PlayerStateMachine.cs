@@ -271,6 +271,7 @@ public class PlayerStateChangeWeapon : PlayerState
     {
         PlayerData.Instance.GetNextWeapon();
         UIManager.Instance.inGameHUD.UpdateWeaponGUI();
+        sm.gameObject.GetComponent<wandAttack>().ChangeWeapon();
 
         if (IsGrounded())
         {
