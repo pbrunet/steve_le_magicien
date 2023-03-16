@@ -31,6 +31,8 @@ public class EnemyRangeAttack : MonoBehaviour
             dir = -1;
         }
         MagicBall bullet = Instantiate<MagicBall>(projectile, new Vector3(gameObject.transform.position.x + 5 * dir, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+
+        bullet.gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
         bullet.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed * dir, 0, 0);
     }
 }

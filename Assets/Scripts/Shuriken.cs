@@ -11,31 +11,41 @@ public class Shuriken : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Respawn());
+        Invoke("Respawn", 1);
+        Invoke("Respawn", 2);
+        Invoke("Respawn", 3);
     }
 
-    public void Launch(Vector3 speed) {
-    
-        if(balls[currentBall] != null)
-        {
-            balls[currentBall].GetComponent<Rigidbody2D>().velocity = speed;
-            balls[currentBall].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic; // Stop following the player
-            balls[currentBall].transform.SetParent(null);
-            balls[currentBall] = null;
-        }
-        currentBall = (currentBall + 1) % 3;
-    }
-
-    IEnumerator Respawn()
+    public void Launch(Vector3 speed)
     {
-        int ballToRespawn = 0;
-        while (true)
+
+        for (int i = 0; i < 3; i++)
         {
-            yield return new WaitForSeconds(1);
+            currentBall = (currentBall + 1) % 3;
+            if (balls[currentBall] != null)
+            {
+                balls[currentBall].GetComponent<Rigidbody2D>().velocity = speed;
+                balls[currentBall].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic; // Stop following the player
+                balls[currentBall].GetComponent<Collider2D>().enabled = true;
+                balls[currentBall].transform.SetParent(null);
+                balls[currentBall] = null;
+                Invoke("Respawn", 1);
+                break;
+            }
+        }
+    }
+
+    void Respawn()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            int ballToRespawn = currentBall;
             if (balls[ballToRespawn] == null)
             {
                 balls[ballToRespawn] = Instantiate(ball, gameObject.transform);
+                balls[ballToRespawn].gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
                 balls[ballToRespawn].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic; // Follow the player
+                balls[ballToRespawn].GetComponent<Collider2D>().enabled = false;
                 switch (ballToRespawn)
                 {
                     case 0:
@@ -45,11 +55,12 @@ public class Shuriken : MonoBehaviour
                         balls[ballToRespawn].transform.localPosition = new Vector3(-5, 0, 0);
                         break;
                     case 2:
-                        balls[ballToRespawn].transform.localPosition = new Vector3(0, 5, 0);
+                        balls[ballToRespawn].transform.localPosition = new Vector3(0, 10, 0);
                         break;
                 }
-                ballToRespawn = (ballToRespawn + 1) % 3;
+                break;
             }
+            ballToRespawn = (ballToRespawn + 1) % 3;
         }
 
     }

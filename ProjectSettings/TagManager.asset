@@ -7,7 +7,6 @@ TagManager:
   - interactable
   - projectile
   - Enemy
-  - BigProjectile
   layers:
   - Default
   - TransparentFX
@@ -16,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
-  - 
+  - EnemyProjectile
+  - PlayerProjectile
   - 
   - 
   - 
