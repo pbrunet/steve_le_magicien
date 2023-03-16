@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BestiaireUI : MonoBehaviour
 {
 
-    [SerializeField] private GameObject bookImg;
+    [SerializeField] private RuntimeAnimatorController inBestiaryController;
+    [SerializeField] private RuntimeAnimatorController openCloseController;
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI desc;
     [SerializeField] private Image enemyImg;
@@ -39,6 +41,7 @@ public class BestiaireUI : MonoBehaviour
     {
         if (currentPage < CampaignManager.Instance.AllMonsters.Count - 1)
         {
+            GetComponent<Animator>().runtimeAnimatorController = inBestiaryController;
             GetComponent<Animator>().Play("NextPage");
             currentPage++;
         }
@@ -49,11 +52,13 @@ public class BestiaireUI : MonoBehaviour
         PlayerController.Instance.OnDisablePlayer();
         Time.timeScale = 0f;
         gameObject.SetActive(true);
+        GetComponent<Animator>().runtimeAnimatorController = openCloseController;
         GetComponent<Animator>().Play("Open");
     }
 
     public void Close()
     {
+        GetComponent<Animator>().runtimeAnimatorController = openCloseController;
         GetComponent<Animator>().Play("Close");
     }
     public void OnClose()
@@ -67,6 +72,7 @@ public class BestiaireUI : MonoBehaviour
     {
         if (currentPage > 0)
         {
+            GetComponent<Animator>().runtimeAnimatorController = inBestiaryController;
             GetComponent<Animator>().Play("PreviousPage");
             currentPage--;
         }

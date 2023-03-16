@@ -43,9 +43,21 @@ public class WeaponUpgradeUI : MonoBehaviour
         Debug.Log(action.weapon.name);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Open()
     {
-
+        PlayerController.Instance.OnDisablePlayer();
+        Time.timeScale = 0f;
+        gameObject.SetActive(true);
+        GetComponent<Animator>().Play("Open");
+    }
+    public void Close()
+    {
+        GetComponent<Animator>().Play("Close");
+    }
+    public void OnClose()
+    {
+        PlayerController.Instance.OnEnablePlayer();
+        Time.timeScale = 1f;
+        gameObject.SetActive(false);
     }
 }

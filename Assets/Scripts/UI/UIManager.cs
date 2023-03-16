@@ -58,7 +58,7 @@ public class UIManager : Singleton<UIManager>
 
     public void OpenWeaponUpgrade()
     {
-        weaponUpgradeUI.gameObject.SetActive(true);
+        weaponUpgradeUI.Open();
     }
     public void OpenWorkBench()
     {
@@ -70,12 +70,12 @@ public class UIManager : Singleton<UIManager>
     }
     public void OpenSelfImprovement()
     {
-        selfImproveUI.gameObject.SetActive(true);
+        selfImproveUI.Open();
     }
 
     private void OnPause()
     {
-        pauseMenu.gameObject.SetActive(true);
+        pauseMenu.Open();
     }
 
     public void ToggleSpeed()

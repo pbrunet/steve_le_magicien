@@ -12,14 +12,9 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ResumeButton.onClick.AddListener(HandleResumeClicked);
+        ResumeButton.onClick.AddListener(Close);
         QuitButton.onClick.AddListener(HandleQuitClicked);
         RestartButton.onClick.AddListener(HandleRestartClicked);
-    }
-
-    private void HandleResumeClicked()
-    {
-        gameObject.SetActive(false);
     }
 
     private void HandleQuitClicked()
@@ -29,5 +24,22 @@ public class PauseMenu : MonoBehaviour
     private void HandleRestartClicked()
     {
         GameManager.Instance.Restart();
+    }
+    public void Open()
+    {
+        PlayerController.Instance.OnDisablePlayer();
+        Time.timeScale = 0f;
+        gameObject.SetActive(true);
+        GetComponent<Animator>().Play("Open");
+    }
+    public void Close()
+    {
+        GetComponent<Animator>().Play("Close");
+    }
+    public void OnClose()
+    {
+        PlayerController.Instance.OnEnablePlayer();
+        Time.timeScale = 1f;
+        gameObject.SetActive(false);
     }
 }

@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class SelfImproveUI : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
+    public void Open()
     {
-        // TODO: Spawn the data and child
-        // TODO: Look into playerData if it is already unlocked
-        
+        PlayerController.Instance.OnDisablePlayer();
+        Time.timeScale = 0f;
+        gameObject.SetActive(true);
+        GetComponent<Animator>().Play("Open");
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Close()
     {
-        
+        GetComponent<Animator>().Play("Close");
+    }
+    public void OnClose()
+    {
+        PlayerController.Instance.OnEnablePlayer();
+        Time.timeScale = 1f;
+        gameObject.SetActive(false);
     }
 }

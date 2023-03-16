@@ -801,10 +801,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8549015321381886545}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 5871553641989305880}
+        m_TargetAssemblyTypeName: SelfImproveUI, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3789,7 +3789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d57fd0f6a94e9b498ad454b6728698a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookImg: {fileID: 1750061211810117387}
+  inBestiaryController: {fileID: 9100000, guid: eb8ec2393805e3945be2120dcddb129a, type: 2}
+  openCloseController: {fileID: 9100000, guid: bc6137296000aca4e99f705c992f250b, type: 2}
   title: {fileID: 868430559845038594}
   desc: {fileID: 4825904810304431375}
   enemyImg: {fileID: 5958593070827990469}
@@ -5527,10 +5528,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8528332497108769416}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 51948468350298176}
+        m_TargetAssemblyTypeName: WeaponUpgradeUI, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6260,6 +6261,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3847276625398320229}
   - component: {fileID: 5250446768126403024}
+  - component: {fileID: 6386231906372991303}
+  - component: {fileID: 3010946200491827572}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -6303,6 +6306,38 @@ MonoBehaviour:
   ResumeButton: {fileID: 3783078164597189815}
   RestartButton: {fileID: 3792965338574049169}
   QuitButton: {fileID: 3007306097908865294}
+--- !u!95 &6386231906372991303
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155501196569131924}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc6137296000aca4e99f705c992f250b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &3010946200491827572
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155501196569131924}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8322018170950933730
 GameObject:
   m_ObjectHideFlags: 0
@@ -6571,6 +6606,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3437645349304322833}
   - component: {fileID: 51948468350298176}
+  - component: {fileID: 6625042761429664224}
+  - component: {fileID: 884151690517710084}
   m_Layer: 5
   m_Name: WeaponUpgrade
   m_TagString: Untagged
@@ -6620,6 +6657,38 @@ MonoBehaviour:
     weapon: {fileID: 11400000, guid: d5e596d832552d84da181d140dced1d0, type: 2}
   - weaponBtn: {fileID: 6134015138525750395}
     weapon: {fileID: 11400000, guid: a9f776975bce68244952939051316ea9, type: 2}
+--- !u!225 &6625042761429664224
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8528332497108769416}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &884151690517710084
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8528332497108769416}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc6137296000aca4e99f705c992f250b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8549015321381886545
 GameObject:
   m_ObjectHideFlags: 0
@@ -6631,6 +6700,7 @@ GameObject:
   - component: {fileID: 8409795287473078789}
   - component: {fileID: 5871553641989305880}
   - component: {fileID: 8400539740724535486}
+  - component: {fileID: 3905660451974149484}
   m_Layer: 5
   m_Name: SelfImprove
   m_TagString: Untagged
@@ -6679,10 +6749,30 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8549015321381886545}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &3905660451974149484
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8549015321381886545}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc6137296000aca4e99f705c992f250b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8582572121006239756
 GameObject:
   m_ObjectHideFlags: 0
