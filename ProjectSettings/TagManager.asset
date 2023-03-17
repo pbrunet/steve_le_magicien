@@ -7,6 +7,7 @@ TagManager:
   - interactable
   - projectile
   - Enemy
+  - PlayerFoot
   layers:
   - Default
   - TransparentFX

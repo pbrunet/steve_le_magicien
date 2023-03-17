@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class cameraFollow : MonoBehaviour
 {
@@ -9,6 +8,7 @@ public class cameraFollow : MonoBehaviour
     [SerializeField] private float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
     [SerializeField] private float offsetSpeed = 5f;
+    [SerializeField] private float maxXoffset = 50f;
     private float accumulatedVelocity = 0f;
     private bool dir = false;
 
@@ -22,7 +22,7 @@ public class cameraFollow : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(gameObject.GetComponent<Rigidbody2D>().velocity.x > 0)
         {
@@ -43,7 +43,7 @@ public class cameraFollow : MonoBehaviour
             accumulatedVelocity += Time.fixedDeltaTime;
         }
         // Define a target position above and behind the target transform
-        Vector3 targetPosition = gameObject.transform.TransformPoint(new Vector3(Mathf.Min(accumulatedVelocity * offsetSpeed, 30), 0, 0));
+        Vector3 targetPosition = gameObject.transform.TransformPoint(new Vector3(Mathf.Min(accumulatedVelocity * offsetSpeed, maxXoffset), 0, 0));
 
         // Smoothly move the camera towards that target position
         float z = camera.transform.position.z;

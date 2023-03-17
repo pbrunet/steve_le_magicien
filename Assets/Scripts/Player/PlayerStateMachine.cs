@@ -131,6 +131,7 @@ public class PlayerStateGrounded : PlayerState
         }
 
         float currentSpeed = PlayerController.Instance.GetCurrentSpeed().x;
+
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
         FixVelocityWithContact();
 

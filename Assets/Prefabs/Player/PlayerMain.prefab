@@ -4991,8 +4991,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
-  smoothTime: 2
-  offsetSpeed: 5
+  smoothTime: 0.5
+  offsetSpeed: 50
+  maxXoffset: 30
 --- !u!114 &1707498739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5018,7 +5019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56aaf17cda0ed6a488aada87d46f792f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionAsset: {fileID: -944628639613478452, guid: 63a2efc9a7e29534da472167c223a0f7, type: 3}
   wandParticules: {fileID: 1958460151}
   projectileSpeed: 50
 --- !u!114 &1711046822
@@ -5064,7 +5064,7 @@ MonoBehaviour:
   - {x: -1.8170776, y: -3.9791799, z: 0}
   m_ShapePathHash: -638696789
   m_Mesh: {fileID: 0}
-  m_InstanceId: 173788
+  m_InstanceId: -42812
 --- !u!61 &1711046824
 BoxCollider2D:
   m_ObjectHideFlags: 0

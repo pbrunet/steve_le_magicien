@@ -41,6 +41,7 @@ public class wandAttack : MonoBehaviour
         {
             GameObject bullet = Instantiate(weapon.magicBall, new Vector3(gameObject.transform.position.x + 5 * PlayerController.Instance.GetDirection(), gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed * PlayerController.Instance.GetDirection(), 0, 0);
+            bullet.gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
         }
         else
         if (weapon.kind == AttackKind.SHURIKEN)
@@ -64,6 +65,7 @@ public class wandAttack : MonoBehaviour
 
                 GameObject bullet = Instantiate(weapon.magicBall, new Vector3(gameObject.transform.position.x + rnd * 1.1f * PlayerController.Instance.GetDirection(), gameObject.transform.position.y + 50, gameObject.transform.position.z), Quaternion.identity);
                 bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(10, -projectileSpeed, 0);
+                bullet.gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
             }
         }
         wandParticules.Play();
