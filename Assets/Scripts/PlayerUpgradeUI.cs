@@ -15,14 +15,26 @@ public class PlayerUpgradeUI : MonoBehaviour
     void Start()
     {
         upgradeImg.sprite = playerUpgradedata.upgradeImg;
+        UpdateLevel();
+    }
+
+    private void UpdateLevel()
+    {
         int level = PlayerData.Instance.GetCurrentUpgradeLevel(playerUpgradedata.kind);
         currentLevelTxt.text = level.ToString();
         if (playerUpgradedata.cost.Count > level)
         {
             nextLevelCostTxt.text = "x " + playerUpgradedata.cost[level].ToString();
-        } else
+        }
+        else
         {
             nextLevelCostTxt.text = "LEVEL MAX";
         }
+    }
+
+    public void Buy()
+    {
+        PlayerData.Instance.Buy(playerUpgradedata.kind);
+        UpdateLevel();
     }
 }

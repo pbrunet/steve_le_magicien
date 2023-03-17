@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8508390311151201989}
   - component: {fileID: 5540753608218614281}
   m_Layer: 5
-  m_Name: txt_cost
+  m_Name: costTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,10 +30,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3954607833932461457}
-  m_RootOrder: 4
+  m_Father: {fileID: 6436407313867819099}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4026143926514285684}
   - component: {fileID: 5287364557355367455}
   m_Layer: 5
-  m_Name: health
+  m_Name: upgradeImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,8 +244,7 @@ RectTransform:
   - {fileID: 3559930358751540857}
   - {fileID: 1384971040479865943}
   - {fileID: 8189786979521977268}
-  - {fileID: 4712872307728810945}
-  - {fileID: 903079485946691246}
+  - {fileID: 6436407313867819099}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -291,7 +290,7 @@ GameObject:
   - component: {fileID: 856430031205073433}
   - component: {fileID: 2881919909996049548}
   m_Layer: 5
-  m_Name: Button
+  m_Name: buyBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,7 +397,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 856430031205073433}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 649472841570434137}
+        m_TargetAssemblyTypeName: PlayerUpgradeUI, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5539578916728684577
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +422,7 @@ GameObject:
   - component: {fileID: 2152026149405990026}
   - component: {fileID: 5718802463630749659}
   m_Layer: 5
-  m_Name: Value
+  m_Name: currentLevelTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,7 +557,7 @@ GameObject:
   - component: {fileID: 5262037284143169000}
   - component: {fileID: 3454689336911651624}
   m_Layer: 5
-  m_Name: img_cost
+  m_Name: costImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,13 +575,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3954607833932461457}
-  m_RootOrder: 3
+  m_Father: {fileID: 6436407313867819099}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6, y: 0}
-  m_AnchorMax: {x: 0.8, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.000030517578, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5262037284143169000
 CanvasRenderer:
@@ -610,3 +621,50 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7833113826083259082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6436407313867819099}
+  - component: {fileID: 9102744217418403377}
+  m_Layer: 5
+  m_Name: costGrp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6436407313867819099
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833113826083259082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4712872307728810945}
+  - {fileID: 903079485946691246}
+  m_Father: {fileID: 3954607833932461457}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.6, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9102744217418403377
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833113826083259082}
+  m_CullTransparentMesh: 1

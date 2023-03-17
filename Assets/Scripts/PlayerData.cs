@@ -140,9 +140,7 @@ public class PlayerData : Singleton<PlayerData>
 
     public int GetCurrentUpgradeLevel(PlayerUpgradeId upgradeId)
     {
-        int value;
-        playerUpgradeLevel.TryGetValue(PlayerUpgradeId.DOUBLE_JUMP, out value);
-        return value;
+        return playerUpgradeLevel[upgradeId];
     }
 
     public bool DoubleJumpUnlocked()
@@ -152,5 +150,17 @@ public class PlayerData : Singleton<PlayerData>
     public bool CanDash()
     {
         return GetCurrentUpgradeLevel(PlayerUpgradeId.DASH) > 0;
+    }
+
+    public void Buy(PlayerUpgradeId upgradeId)
+    {
+        int level = GetCurrentUpgradeLevel(upgradeId);
+        int cost = PlayerUpgrade.Instance.GetDataFromKind(upgradeId).cost[level];
+        if (Ghost >= cost)
+        {
+            ghost -= cost;
+            playerUpgradeLevel[upgradeId] = level + 1;
+            UIManager.Instance.inGameHUD.UpdateGhostGUI();
+        }
     }
 }

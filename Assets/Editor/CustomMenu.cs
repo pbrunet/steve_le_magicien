@@ -35,4 +35,10 @@ public class CustomMenu
         PlayerPrefs.SetInt("Baguette Viseur", 2);
         PlayerPrefs.Save();
     }
+
+    [MenuItem("Tools/AddGhost")]
+    private static void AddGhost()
+    {
+        PlayerData.Instance.loot(0, 0, 100);
+    }
 }
