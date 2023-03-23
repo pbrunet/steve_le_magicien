@@ -26,13 +26,13 @@ public class CustomMenu
     [MenuItem("Tools/BuyAllWeapons")]
     private static void BuyAllWeapons()
     {
-        PlayerPrefs.SetInt("Baguette archer", 2);
-        PlayerPrefs.SetInt("Baguette Dégats de zone", 2);
-        PlayerPrefs.SetInt("Invocation stick", 2);
-        PlayerPrefs.SetInt("Baguette Ninja", 2);
-        PlayerPrefs.SetInt("Baguette Normal", 2);
-        PlayerPrefs.SetInt("Baguette original", 2);
-        PlayerPrefs.SetInt("Baguette Viseur", 2);
+        PlayerPrefs.SetInt("Baguette archer", 4);
+        PlayerPrefs.SetInt("Baguette Degats de zone", 3);
+        PlayerPrefs.SetInt("Invocation stick", 3);
+        PlayerPrefs.SetInt("Baguette Ninja", 3);
+        PlayerPrefs.SetInt("Baguette Normal", 3);
+        PlayerPrefs.SetInt("Baguette original", 3);
+        PlayerPrefs.SetInt("Baguette Viseur", 3);
         PlayerPrefs.Save();
     }
 

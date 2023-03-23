@@ -20,5 +20,7 @@ public class WeaponUpgradeData : ScriptableObject
     public int cost;
     public GameObject magicBall;
     public AttackKind kind;
+    public float reloadDelay = 1f;
+    public int maxProjectiles = 3;
     public List<WeaponUpgradeData> requirements;
 }

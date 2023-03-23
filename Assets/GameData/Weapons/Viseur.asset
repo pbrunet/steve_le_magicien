@@ -17,5 +17,6 @@ MonoBehaviour:
   cost: 1000
   magicBall: {fileID: 0}
   kind: 3
+  reloadDelay: 0.66
   requirements:
   - {fileID: 11400000, guid: 8aeb54aae91576047ba163ca01157e45, type: 2}
