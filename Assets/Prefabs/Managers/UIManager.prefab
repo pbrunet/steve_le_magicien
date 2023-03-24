@@ -3789,8 +3789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d57fd0f6a94e9b498ad454b6728698a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inBestiaryController: {fileID: 9100000, guid: eb8ec2393805e3945be2120dcddb129a, type: 2}
-  openCloseController: {fileID: 9100000, guid: bc6137296000aca4e99f705c992f250b, type: 2}
   title: {fileID: 868430559845038594}
   desc: {fileID: 4825904810304431375}
   enemyImg: {fileID: 5958593070827990469}

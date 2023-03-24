@@ -4,9 +4,6 @@ using UnityEngine.UI;
 
 public class BestiaireUI : MonoBehaviour
 {
-
-    [SerializeField] private RuntimeAnimatorController inBestiaryController;
-    [SerializeField] private RuntimeAnimatorController openCloseController;
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI desc;
     [SerializeField] private Image enemyImg;
@@ -38,8 +35,7 @@ public class BestiaireUI : MonoBehaviour
     {
         if (currentPage < CampaignManager.Instance.AllMonsters.Count - 1)
         {
-            GetComponent<Animator>().runtimeAnimatorController = inBestiaryController;
-            GetComponent<Animator>().Play("NextPage");
+            GetComponent<Animator>().SetTrigger("Next");
             currentPage++;
         }
     }
@@ -49,14 +45,12 @@ public class BestiaireUI : MonoBehaviour
         PlayerController.Instance.OnDisablePlayer();
         Time.timeScale = 0f;
         gameObject.SetActive(true);
-        GetComponent<Animator>().runtimeAnimatorController = openCloseController;
-        GetComponent<Animator>().Play("Open");
+        GetComponent<Animator>().SetTrigger("Open");
     }
 
     public void Close()
     {
-        GetComponent<Animator>().runtimeAnimatorController = openCloseController;
-        GetComponent<Animator>().Play("Close");
+        GetComponent<Animator>().SetTrigger("Close");
     }
     public void OnClose()
     {
@@ -69,8 +63,7 @@ public class BestiaireUI : MonoBehaviour
     {
         if (currentPage > 0)
         {
-            GetComponent<Animator>().runtimeAnimatorController = inBestiaryController;
-            GetComponent<Animator>().Play("PreviousPage");
+            GetComponent<Animator>().SetTrigger("Previous");
             currentPage--;
         }
     }
