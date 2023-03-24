@@ -152,6 +152,7 @@ public class PlayerStateGrounded : PlayerState
 
     private void OnJumpPressed()
     {
+        sm.gameObject.GetComponent<Animator>().SetTrigger("Jump");
         jumpPressed = true;
     }
     private void OnAttackPressed()
@@ -249,7 +250,8 @@ public class PlayerStateAttack : PlayerState
         }
         else
         {
-            sm.gameObject.GetComponent<wandAttack>().DoAttack();
+            sm.gameObject.GetComponent<Animator>().SetTrigger("Attack");
+            //sm.gameObject.GetComponent<wandAttack>().DoAttack();
         }
 
         if (IsGrounded())
@@ -324,6 +326,7 @@ public class PlayerStateInAir : PlayerState
     {
         if (PlayerData.Instance.DoubleJumpUnlocked() && !sm.inDoubleJmp)
         {
+            sm.gameObject.GetComponent<Animator>().SetTrigger("Jump");
             sm.inDoubleJmp = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Min(rb.velocity.y + PlayerController.Instance.JumpSpeed, PlayerController.Instance.JumpSpeed));
         }
