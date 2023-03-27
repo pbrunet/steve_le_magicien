@@ -57,7 +57,5 @@ public abstract class Interactable : MonoBehaviour
 
     public virtual void DoInteract(InputAction.CallbackContext cb)
     {
-        Destroy(tooltip);
-        tooltip = null;
     }
 }

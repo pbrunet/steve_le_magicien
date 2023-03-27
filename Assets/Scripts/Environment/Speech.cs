@@ -12,12 +12,12 @@ public class Speech : MonoBehaviour
 
     public void OnEnable()
     {
-        InvokeRepeating("MakeDisapear", duration, 10.0f);
+        Invoke("MakeDisapear", duration);
 
         bubble = Instantiate(dialogBubble, UIManager.Instance.inGameHUD.transform);
         bubble.transform.SetParent(UIManager.Instance.inGameHUD.transform, true);
         bubble.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(this.transform.position + textOffset);
-        bubble.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = text;
+        bubble.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = text.Replace("\\n", "\n");
     }
 
     public void Update()

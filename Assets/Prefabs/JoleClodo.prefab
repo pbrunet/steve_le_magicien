@@ -31,7 +31,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4046469252647393372}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.169998, y: -16.18, z: -7.66}
   m_LocalScale: {x: 0.66, y: 0.66, z: 0.62700003}
   m_ConstrainProportionsScale: 1
@@ -109,7 +109,7 @@ MonoBehaviour:
   - {fileID: 4046469253618819229}
   - {fileID: 4046469253948511429}
   m_Bounds:
-    m_Center: {x: 0.20495796, y: 0.0057458878, z: 0}
+    m_Center: {x: 0.20496178, y: 0.0057458878, z: 0}
     m_Extent: {x: 4.902808, y: 10.785288, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -205,8 +205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBubble: {fileID: 4962178478514486997, guid: 1eefc87efbbe48b45971b99e464555e6, type: 3}
-  text: "Floris, arr\xE9te de me couper la parole !"
-  textOffset: {x: 9.647636, y: 9.888826, z: 0}
+  text: "Floris, arr\xE9te de me\\ncouper la parole !"
+  textOffset: {x: 3, y: 6, z: 0}
   duration: 5
 --- !u!114 &4046469252647393319
 MonoBehaviour:
@@ -245,7 +245,7 @@ MonoBehaviour:
   - {x: 5.107769, y: -10.779543, z: 0}
   m_ShapePathHash: 1503042582
   m_Mesh: {fileID: 0}
-  m_InstanceId: 164300
+  m_InstanceId: -1758904
 --- !u!1 &4046469253618819218
 GameObject:
   m_ObjectHideFlags: 0
