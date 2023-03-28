@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6397549237381072403}
   - component: {fileID: 5963203989699339570}
   - component: {fileID: 5963203989699339571}
+  - component: {fileID: 5963203989699339572}
   m_Layer: 0
   m_Name: TV
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: ec1b5fe5a076e2048a736c5d5317a698, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -127,4 +128,34 @@ MonoBehaviour:
   actionAsset: {fileID: -944628639613478452, guid: 63a2efc9a7e29534da472167c223a0f7, type: 3}
   actionName: OpenTV
   tooltipPrefab: {fileID: 4962178478514486997, guid: dea03502f04986645aa241b0e3fac526, type: 3}
-  textOffset: {x: 10, y: 8, z: 0}
+  textOffset: {x: 5, y: 5, z: 0}
+--- !u!114 &5963203989699339572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6846191387763830936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -6.6166306, y: -4.537734, z: 0}
+  - {x: -8.591576, y: 4.6896534, z: 0}
+  - {x: -5.4608765, y: 4.9934897, z: 0}
+  - {x: -4.945442, y: 0.3537612, z: 0}
+  - {x: -1.7551575, y: 0.4297204, z: 0}
+  - {x: -0.61577606, y: -0.4058299, z: 0}
+  - {x: -1.6629181, y: -4.461774, z: 0}
+  m_ShapePathHash: -1699445501
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 262484

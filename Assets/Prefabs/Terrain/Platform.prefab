@@ -24,16 +24,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8522315344925479651, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522315344925479651, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.3
+      value: -4.42
       objectReference: {fileID: 0}
     - target: {fileID: 8522315344925479651, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.47
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 8522315344925479651, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.3499999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8522315344925479651, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
       propertyPath: m_LocalRotation.w
@@ -41,15 +45,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8522315344925479651, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8522315344925479651, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8522315344925479651, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8522315344925479651, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -67,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6329095856377821783, guid: 8878b65fdd5b28c4cabb3f6f89aa0286, type: 3}
+    - target: {fileID: 8522315344925479652, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8522315344925479653, guid: 832ffd37c5a39f04dbf28702ef2cb482, type: 3}
       propertyPath: m_SpriteTilingProperty.border.y
       value: 0.01

@@ -7,6 +7,8 @@ public class Damageable : MonoBehaviour
     [SerializeField] private int maxLife = 30;
     [SerializeField] private GameObject greenBarOrigin;
 
+    private Vector3 initBarScale = Vector3.one;
+
     public event System.Action<GameObject> OnKilled;
 
     // damage / instigator
@@ -58,7 +60,7 @@ public class Damageable : MonoBehaviour
         if (greenBarOrigin)
         {
             // Update healthBar
-            greenBarOrigin.transform.localScale = new Vector3((float)life / maxLife, 1.0f, 1.0f);
+            greenBarOrigin.transform.localScale = new Vector3(initBarScale.x * (float)life / maxLife, initBarScale.y, initBarScale.z);
         }
 
         if (life <= 0)
@@ -75,5 +77,8 @@ public class Damageable : MonoBehaviour
     void Start()
     {
         life = maxLife;
+        if (greenBarOrigin) { 
+            initBarScale = greenBarOrigin.transform.localScale;
+        }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5758025264694488271}
   - component: {fileID: 2961124488362473642}
   - component: {fileID: 2961124488362473643}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TrainingModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: dfbf1b1ecd27cd444a77f46a9a4f3a1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,6 +156,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5019809262210275147}
     m_Modifications:
+    - target: {fileID: 393317676929291633, guid: 3bb8b9f8eab3b6a4ca5819ec8f1c950f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352184515933894181, guid: 3bb8b9f8eab3b6a4ca5819ec8f1c950f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522240891693851111, guid: 3bb8b9f8eab3b6a4ca5819ec8f1c950f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4522240891693851111, guid: 3bb8b9f8eab3b6a4ca5819ec8f1c950f, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -219,6 +231,10 @@ PrefabInstance:
     - target: {fileID: 8151179440048407153, guid: 3bb8b9f8eab3b6a4ca5819ec8f1c950f, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151179440048407153, guid: 3bb8b9f8eab3b6a4ca5819ec8f1c950f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb8b9f8eab3b6a4ca5819ec8f1c950f, type: 3}
