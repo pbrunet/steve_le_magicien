@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using JetBrains.Annotations;
 
 public class FSM
 {
@@ -36,5 +37,10 @@ public class FSM
         }
 
         return nextState;
+    }
+
+    public void Terminate()
+    {
+        Exit();
     }
 }

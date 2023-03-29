@@ -5080,7 +5080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wandParticules: {fileID: 1958460151}
-  projectileSpeed: 50
+  projectileSpeed: 200
 --- !u!114 &1711046822
 MonoBehaviour:
   m_ObjectHideFlags: 0

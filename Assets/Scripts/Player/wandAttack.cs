@@ -20,7 +20,7 @@ public class wandAttack : MonoBehaviour
     public GameObject Invoke()
     {
         WeaponUpgradeData weapon = PlayerData.Instance.GetCurrentWeapon();
-        return Instantiate(weapon.magicBall, new Vector3(gameObject.transform.position.x + 5 * PlayerController.Instance.GetDirection(), gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+        return Instantiate(weapon.magicBall, new Vector3(gameObject.transform.position.x + 5 * gameObject.transform.localScale.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
     }
 
     public void ChangeWeapon()
@@ -45,14 +45,14 @@ public class wandAttack : MonoBehaviour
             lastAttack = Time.time;
             if (weapon.kind == AttackKind.SHOT_BULLET)
             {
-                GameObject bullet = Instantiate(weapon.magicBall, new Vector3(gameObject.transform.position.x + 5 * PlayerController.Instance.GetDirection(), gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
-                bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed * PlayerController.Instance.GetDirection(), 0, 0);
+                GameObject bullet = Instantiate(weapon.magicBall, new Vector3(gameObject.transform.position.x + 5 * gameObject.transform.localScale.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+                bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed * gameObject.transform.localScale.x, 0, 0);
                 bullet.gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
             }
             else
             if (weapon.kind == AttackKind.SHURIKEN)
             {
-                shuriken.GetComponent<Shuriken>().Launch(new Vector3(projectileSpeed * PlayerController.Instance.GetDirection(), 0, 0));
+                shuriken.GetComponent<Shuriken>().Launch(new Vector3(projectileSpeed * gameObject.transform.localScale.x, 0, 0));
             }
             else
             {
@@ -70,7 +70,7 @@ public class wandAttack : MonoBehaviour
                         }
                     } while (true);
 
-                    GameObject bullet = Instantiate(weapon.magicBall, new Vector3(gameObject.transform.position.x + rnd * 1.1f * PlayerController.Instance.GetDirection(), gameObject.transform.position.y + 50, gameObject.transform.position.z), Quaternion.identity);
+                    GameObject bullet = Instantiate(weapon.magicBall, new Vector3(gameObject.transform.position.x + rnd * 1.1f * gameObject.transform.localScale.x, gameObject.transform.position.y + 50, gameObject.transform.position.z), Quaternion.identity);
                     bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(10, -projectileSpeed, 0);
                     bullet.gameObject.layer = LayerMask.NameToLayer("HitEnemy");
                 }

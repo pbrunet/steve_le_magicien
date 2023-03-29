@@ -158,15 +158,4 @@ public class PlayerController : Singleton<PlayerController>
         InputAction move = actionMap.FindAction("Move");
         return speed * move.ReadValue<Vector2>();
     }
-
-    public int GetDirection()
-    {
-        if(transform.localScale.x < 0)
-        {
-            return -1;
-        } else
-        {
-            return 1;
-        }
-    }
 }

@@ -346,10 +346,14 @@ public class PlayerStateMachine : MonoBehaviour
     [System.NonSerialized] public bool inDoubleJmp;
     [SerializeField] public float dashDistance = 15;
 
-    private void Start()
+    private void OnEnable()
     {
         inDoubleJmp = false;
         state = new PlayerStateGrounded(this);
+    }
+    private void OnDisable()
+    {
+        state.Terminate();
     }
 
     // Update is called once per frame
