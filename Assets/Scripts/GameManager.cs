@@ -5,29 +5,16 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-[System.Serializable]
-public class EventGameState : UnityEvent<GameManager.GameState, GameManager.GameState> { }
-
 public class GameManager : Singleton<GameManager>
 {
-    public enum GameState
-    {
-        UNKNOWN,
-        TITLE_SCREEN,
-        START_AREA,
-        INGAME,
-        END_LEVEL
-    }
 
+    public LevelInfo firstScene;
+    public LevelInfo startAreaScene;
     public GameObject[] systemPrefabs;
-    public EventGameState OnGameStateChanged;
 
     private List<GameObject> instancedSystemPrefabs = new List<GameObject>();
     private string currentLevelName = "";
     private List<AsyncOperation> loadOperations = new List<AsyncOperation>();
-    private GameState currentGameState = GameState.UNKNOWN;
-
-    public GameState CurrentGameState { get { return currentGameState; } }
 
     private void Start()
     {
@@ -44,13 +31,16 @@ public class GameManager : Singleton<GameManager>
 
         if (SceneManager.sceneCount < 2)
         {
-            TransitionToLevel("TitleScreen");
+            TransitionToLevel(firstScene);
         } else
         {
             string sceneName = SceneManager.GetSceneAt(1).name;
+            LevelInfo info = new LevelInfo();
+            info.sceneName = sceneName;
+            info.friendlyName = "Custom Level";
             SceneManager.UnloadScene(sceneName);
 
-            TransitionToLevel(sceneName);
+            TransitionToLevel(info);
         }
     }
 
@@ -84,56 +74,22 @@ public class GameManager : Singleton<GameManager>
         if (loadOperations.Count == 0)
         {
             // To keep prefabs instance in this scene and auto remove them at the end
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentLevelName));
-            if(currentLevelName == "TitleScreen")
-            {
-                UpdateGameState(GameState.TITLE_SCREEN);
-            }
-            else
-            {
-                UpdateGameState(GameState.INGAME);
-            }
+            SceneManager.SetActiveScene(SceneManager.GetSceneByPath(currentLevelName));
         }
 
     }
 
-    public void TransitionToLevel(string levelName)
+    public void TransitionToLevel(LevelInfo levelName)
     {
         if (currentLevelName != "")
         {
             UnLoadLevel(currentLevelName);
         }
-        LoadLevel(levelName);
+        LoadLevel(levelName.sceneName);
     }
 
     private void OnUnloadOperationComplete(AsyncOperation ao)
     {
-    }
-
-    private void UpdateGameState(GameState state)
-    {
-        GameState oldState = currentGameState;
-        currentGameState = state;
-
-        switch (currentGameState)
-        {
-            case GameState.INGAME:
-                Time.timeScale = 1.0f;
-                break;
-            case GameState.TITLE_SCREEN:
-                Time.timeScale = 1.0f;
-                break;
-            case GameState.START_AREA:
-                TransitionToLevel("StartArea");
-                Time.timeScale = 1.0f;
-                break;
-            case GameState.END_LEVEL:
-                Time.timeScale = 0.0f;
-                break;
-            default:
-                break;
-        }
-        OnGameStateChanged.Invoke(state, oldState);
     }
 
     private void LoadLevel(string levelName)
@@ -161,11 +117,6 @@ public class GameManager : Singleton<GameManager>
         currentLevelName = "";
     }
 
-    public void EndLevel()
-    {
-        UpdateGameState(GameState.END_LEVEL);
-    }
-
     public void Quit()
     {
         // save any game data here
@@ -179,7 +130,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void Restart()
     {
-        UpdateGameState(GameState.START_AREA);
+        TransitionToLevel(startAreaScene);
     }
 
     public void FadeOutCompleted(bool isFadeOut)

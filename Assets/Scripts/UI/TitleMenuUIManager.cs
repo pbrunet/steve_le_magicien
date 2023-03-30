@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TitleMenuManager : MonoBehaviour
+public class TitleMenuUIManager : MonoBehaviour
 {
     public EventFadeOutCompleted OnFadeOutCompleted;
 
@@ -13,6 +13,11 @@ public class TitleMenuManager : MonoBehaviour
     private void Start()
     {
         //FadeIn();
+    }
+
+    public void Open()
+    {
+        gameObject.SetActive(true);
     }
 
     public void FadeInCompleted()
@@ -47,6 +52,7 @@ public class TitleMenuManager : MonoBehaviour
     {
         //FadeOut();
         CampaignManager.Instance.StartNewGame();
+        gameObject.SetActive(false);
     }
 
     public void OnQuitClicked()

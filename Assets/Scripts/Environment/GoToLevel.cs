@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 class GoToLevel : Interactable
 {
-    [SerializeField] private string sceneName;
+    [SerializeField] private LevelInfo nextScene;
 
-    public void SetNextLevel(string levelName) { sceneName= levelName; }
+    public void SetNextLevel(LevelInfo levelName) { nextScene = levelName; }
 
     public override void DoInteract(InputAction.CallbackContext cb)
     {
         base.DoInteract(cb);
-        GameManager.Instance.TransitionToLevel(sceneName);
+        GameManager.Instance.TransitionToLevel(nextScene);
     }
 }

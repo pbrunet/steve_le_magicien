@@ -381,6 +381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487cff5b35f690d4c9d285e141532388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstScene: {fileID: 11400000, guid: 9b16a3124d6131841ae587b578d83142, type: 2}
+  startAreaScene: {fileID: 11400000, guid: 4330a147a1b98144a9e459404bb06f38, type: 2}
   systemPrefabs:
   - {fileID: 5829742020274910414, guid: dcfbb5e4eb5c4d34da4ae183f9e73636, type: 3}
   - {fileID: 2684183235960312596, guid: 6b16037fdedd8384994ee1521607617a, type: 3}
@@ -388,9 +390,6 @@ MonoBehaviour:
   - {fileID: 8082464252106737076, guid: 0a1269956f449d5459fef1a4f45a1933, type: 3}
   - {fileID: 5673230926048287666, guid: 45283e08294742045b6e4ff56f122e23, type: 3}
   - {fileID: 7023362223991963846, guid: 2aeb11289c765a44ca6ae4c16a103f1d, type: 3}
-  OnGameStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &855002338
 Transform:
   m_ObjectHideFlags: 0

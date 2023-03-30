@@ -11,7 +11,7 @@ public class LevelGenerator : MonoBehaviour
 
     [SerializeField] int NumCells = 10;
     int RemainingNumCells;
-    [SerializeField] string nextLevel = "";
+    [SerializeField] LevelInfo nextScene;
     [SerializeField] GoToLevel nextLevelPrefab;
     [SerializeField] private Vector2 cellSize = new Vector2(90f, 60f);
 
@@ -291,7 +291,7 @@ public class LevelGenerator : MonoBehaviour
         Tuple<int, int> cellWithExit = Candidate[UnityEngine.Random.Range(0, Candidate.Count)];
         GeneratedCell genWithExit = grid[cellWithExit.Item1][cellWithExit.Item2];
         GoToLevel spawnedNextLevel = Instantiate<GoToLevel>(nextLevelPrefab, new Vector3((cellWithExit.Item1 - NumCells / 2) * cellSize.x + genWithExit.possibleExitPos.x + nextLevelPrefab.transform.position.x, (cellWithExit.Item2 - NumCells / 2) * cellSize.y + genWithExit.possibleExitPos.y + nextLevelPrefab.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation, gameObject.transform);
-        spawnedNextLevel.SetNextLevel(nextLevel);
+        spawnedNextLevel.SetNextLevel(nextScene);
 
     }
 }

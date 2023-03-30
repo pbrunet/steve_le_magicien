@@ -12,11 +12,12 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField] private GameObject tooltipPrefab;
     [SerializeField] public Vector3 textOffset;
 
+    private bool interactionCreated = false;
     private GameObject tooltip;
 
     public void OnDestroy()
     {
-        Destroy(tooltip);
+        DestroyInteraction();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +27,7 @@ public abstract class Interactable : MonoBehaviour
             InputActionMap actionMap = actionAsset.FindActionMap("Player");
             InputAction action = actionMap.FindAction(actionName);
             action.started += DoInteract;
+            interactionCreated = true;
             if (tooltipPrefab != null)
             {
                 tooltip = Instantiate(tooltipPrefab, UIManager.Instance.inGameHUD.transform);
@@ -38,11 +40,23 @@ public abstract class Interactable : MonoBehaviour
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (tooltip != null && collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
+        {
+            DestroyInteraction();
+        }
+    }
+
+    private void DestroyInteraction()
+    {
+        if(interactionCreated)
         {
             InputActionMap actionMap = actionAsset.FindActionMap("Player");
             InputAction action = actionMap.FindAction(actionName);
             action.started -= DoInteract;
+            interactionCreated = false;
+        }
+        if (tooltip != null)
+        {
             Destroy(tooltip);
         }
     }

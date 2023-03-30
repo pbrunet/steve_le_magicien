@@ -9,7 +9,7 @@ public class UIManager : Singleton<UIManager>
 {
     public EventFadeOutCompleted OnNewSceneFadeOutCompleted;
 
-    [SerializeField] private TitleMenuManager mainMenu;
+    [SerializeField] private TitleMenuUIManager mainMenu;
     [SerializeField] private PauseMenu pauseMenu;
     [SerializeField] public InGameHUD inGameHUD;
     [SerializeField] public WeaponUpgradeUI weaponUpgradeUI;
@@ -38,7 +38,6 @@ public class UIManager : Singleton<UIManager>
         }
 
         mainMenu.OnFadeOutCompleted.AddListener(HandleOnFadeOutCompleted);
-        GameManager.Instance.OnGameStateChanged.AddListener(HandleGameStateChanged);
 
         PlayerController.Instance.OnPauseCB += OnPause;
     }
@@ -46,14 +45,6 @@ public class UIManager : Singleton<UIManager>
     private void HandleOnFadeOutCompleted(bool isFadeOut)
     {
         OnNewSceneFadeOutCompleted.Invoke(isFadeOut);
-    }
-
-    private void HandleGameStateChanged(GameManager.GameState current, GameManager.GameState old)
-    {
-        //pauseMenu.gameObject.SetActive(current == GameManager.GameState.PAUSED);
-        //resultS.gameObject.SetActive(current == GameManager.GameState.END_LEVEL);
-        inGameHUD.gameObject.SetActive(current == GameManager.GameState.INGAME);
-        mainMenu.gameObject.SetActive(current == GameManager.GameState.TITLE_SCREEN);
     }
 
     public void OpenWeaponUpgrade()
@@ -71,6 +62,10 @@ public class UIManager : Singleton<UIManager>
     public void OpenSelfImprovement()
     {
         selfImproveUI.Open();
+    }
+    public void OpenTitleMenu()
+    {
+        mainMenu.Open();
     }
 
     private void OnPause()
