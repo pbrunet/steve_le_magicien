@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartArea.unity
     guid: c50ce1bbd2461fe4d9f84844e89f8dd4
+  - enabled: 1
+    path: Assets/Scenes/testmap.unity
+    guid: 91864c38a7438ae4bb8fce06b47c663f
   m_configObjects: {}

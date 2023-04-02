@@ -35,7 +35,7 @@ public class GameManager : Singleton<GameManager>
         }
         else
         {
-            string sceneName = SceneManager.GetSceneAt(1).name;
+            string sceneName = SceneManager.GetSceneAt(1).path;
             LevelInfo info = new LevelInfo();
             info.sceneName = sceneName;
             info.friendlyName = "Custom Level";
