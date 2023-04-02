@@ -7,7 +7,6 @@ public class EventFadeOutCompleted : UnityEvent<bool> { }
 
 public class UIManager : Singleton<UIManager>
 {
-    public EventFadeOutCompleted OnNewSceneFadeOutCompleted;
 
     [SerializeField] private TitleMenuUIManager mainMenu;
     [SerializeField] private PauseMenu pauseMenu;
@@ -16,6 +15,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private WorkBenchUI workBenchUI;
     [SerializeField] private BestiaireUI bestiaireUI;
     [SerializeField] private SelfImproveUI selfImproveUI;
+    [SerializeField] public TransitionScreen transitionScreen;
 
     [System.Serializable]
     public class KeyToSprite
@@ -28,23 +28,8 @@ public class UIManager : Singleton<UIManager>
 
     private void Start()
     {
-        if(mainMenu.OnFadeOutCompleted == null)
-        {
-            mainMenu.OnFadeOutCompleted = new EventFadeOutCompleted();
-        }
-        if(OnNewSceneFadeOutCompleted == null)
-        {
-            OnNewSceneFadeOutCompleted = new EventFadeOutCompleted();
-        }
-
-        mainMenu.OnFadeOutCompleted.AddListener(HandleOnFadeOutCompleted);
 
         PlayerController.Instance.OnPauseCB += OnPause;
-    }
-
-    private void HandleOnFadeOutCompleted(bool isFadeOut)
-    {
-        OnNewSceneFadeOutCompleted.Invoke(isFadeOut);
     }
 
     public void OpenWeaponUpgrade()
@@ -66,6 +51,10 @@ public class UIManager : Singleton<UIManager>
     public void OpenTitleMenu()
     {
         mainMenu.Open();
+    }
+    public void CloseTitleMenu()
+    {
+        mainMenu.gameObject.SetActive(false);
     }
 
     private void OnPause()

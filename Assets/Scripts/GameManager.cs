@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager>
     private List<GameObject> instancedSystemPrefabs = new List<GameObject>();
     private string currentLevelName = "";
     private List<AsyncOperation> loadOperations = new List<AsyncOperation>();
+    private LevelInfo nextLevel;
 
     private void Start()
     {
@@ -22,17 +23,17 @@ public class GameManager : Singleton<GameManager>
 
         InstanciateSystemPrefabs();
 
-        if (UIManager.Instance.OnNewSceneFadeOutCompleted == null)
-        {
-            UIManager.Instance.OnNewSceneFadeOutCompleted = new EventFadeOutCompleted();
-        }
+        // Invoke another method to wait until all "Start" methods are called
+        Invoke("Init", 0);
+    }
 
-        UIManager.Instance.OnNewSceneFadeOutCompleted.AddListener(FadeOutCompleted);
-
+    private void Init()
+    {
         if (SceneManager.sceneCount < 2)
         {
             TransitionToLevel(firstScene);
-        } else
+        }
+        else
         {
             string sceneName = SceneManager.GetSceneAt(1).name;
             LevelInfo info = new LevelInfo();
@@ -77,15 +78,15 @@ public class GameManager : Singleton<GameManager>
             SceneManager.SetActiveScene(SceneManager.GetSceneByPath(currentLevelName));
         }
 
+        UIManager.Instance.transitionScreen.transitionDone();
     }
 
     public void TransitionToLevel(LevelInfo levelName)
     {
-        if (currentLevelName != "")
-        {
-            UnLoadLevel(currentLevelName);
-        }
-        LoadLevel(levelName.sceneName);
+        UIManager.Instance.transitionScreen.OnFadeOut += FadeOutCompleted;
+        nextLevel = levelName;
+
+        UIManager.Instance.transitionScreen.transitionTo(levelName.friendlyName, currentLevelName != "");
     }
 
     private void OnUnloadOperationComplete(AsyncOperation ao)
@@ -133,11 +134,14 @@ public class GameManager : Singleton<GameManager>
         TransitionToLevel(startAreaScene);
     }
 
-    public void FadeOutCompleted(bool isFadeOut)
+    public void FadeOutCompleted()
     {
-        //if (!isFadeOut)
-        //{
-        //    UnLoadLevel(currentLevelName);
-        //}
+        UIManager.Instance.transitionScreen.OnFadeOut -= FadeOutCompleted;
+
+        if (currentLevelName != "")
+        {
+            UnLoadLevel(currentLevelName);
+        }
+        LoadLevel(nextLevel.sceneName);
     }
 }

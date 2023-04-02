@@ -1,16 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
-using UnityEngine.U2D;
 
 public class PlayerController : Singleton<PlayerController>
 {
     [SerializeField] private InputActionAsset actionAsset;
-    public float speed = 1000;
+    [SerializeField] public float speed = 1000;
     [SerializeField] private float jumpSpeed = 50;
 
     public float JumpSpeed { get { return jumpSpeed; } }
