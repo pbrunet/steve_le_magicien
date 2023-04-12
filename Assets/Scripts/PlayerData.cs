@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerData : Singleton<PlayerData>
 {
+
+    static private int VERSION = 1;
+
     [Header("Player")]
     [SerializeField] int initLife = 100;
     private int life;
@@ -41,6 +44,12 @@ public class PlayerData : Singleton<PlayerData>
     // Start is called before the first frame update
     private void Start()
     {
+        int version = PlayerPrefs.GetInt("version", VERSION - 1);
+        if(version != VERSION)
+        {
+            PlayerPrefs.DeleteAll();
+        }
+
         beer = PlayerPrefs.GetInt("beer", initBeer);
         garbage = PlayerPrefs.GetInt("garbage", initGarbage);
         ghost = PlayerPrefs.GetInt("ghost", initGhost);
