@@ -71,7 +71,7 @@ public class wandAttack : MonoBehaviour
                     } while (true);
 
                     GameObject bullet = Instantiate(weapon.magicBall, new Vector3(gameObject.transform.position.x + rnd * 1.1f * gameObject.transform.localScale.x, gameObject.transform.position.y + 50, gameObject.transform.position.z), Quaternion.identity);
-                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(10, -projectileSpeed, 0);
+                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(weapon.magicBall.GetComponent<MagicBall>().speed / 2, -weapon.magicBall.GetComponent<MagicBall>().speed, 0);
                     bullet.gameObject.layer = LayerMask.NameToLayer("HitEnemy");
                 }
             }

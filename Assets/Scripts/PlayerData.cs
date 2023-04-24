@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerData : Singleton<PlayerData>
 {
 
-    static private int VERSION = 1;
+    static public int VERSION = 1;
 
     [Header("Player")]
     [SerializeField] int initLife = 100;
@@ -107,6 +107,7 @@ public class PlayerData : Singleton<PlayerData>
 
     public void Save()
     {
+        PlayerPrefs.SetInt("version", VERSION);
         PlayerPrefs.SetInt("beer", beer);
         PlayerPrefs.SetInt("garbage", garbage);
         PlayerPrefs.SetInt("ghost", ghost);

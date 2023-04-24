@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16909d4e733bc544e916355de9c42ebc, type: 3}
   m_Name: Original
   m_EditorClassIdentifier: 
-  weaponImg: {fileID: 21300000, guid: d5f14806f98f3194b82ee538b6ff5efb, type: 3}
+  weaponImg: {fileID: 21300000, guid: 65ea1693d7165674ba9b0b0edad56918, type: 3}
   weaponName: Baguette original
   cost: 0
   magicBall: {fileID: 4896175736998758789, guid: 8829c3f87eb446448afcdc7dedaff608, type: 3}
   kind: 0
+  reloadDelay: 1
+  maxProjectiles: 3
   requirements: []

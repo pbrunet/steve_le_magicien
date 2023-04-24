@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MagicBall : MonoBehaviour
 {
+    [SerializeField] public int speed;
     [SerializeField] private int damage;
     [SerializeField] private int damagePerSec;
     [SerializeField] private float damageDuration;

@@ -174,10 +174,13 @@ public class PlayerStateGrounded : PlayerState
     protected override void Exit()
     {
         base.Exit();
-        PlayerController.Instance.OnJumpCB -= OnJumpPressed;
-        PlayerController.Instance.OnDashCB -= OnDashPressed;
-        PlayerController.Instance.OnAttackCB -= OnAttackPressed;
-        PlayerController.Instance.OnNextWeaponCB -= OnNextWeapon;
+        if (PlayerController.Instance != null)
+        {
+            PlayerController.Instance.OnJumpCB -= OnJumpPressed;
+            PlayerController.Instance.OnDashCB -= OnDashPressed;
+            PlayerController.Instance.OnAttackCB -= OnAttackPressed;
+            PlayerController.Instance.OnNextWeaponCB -= OnNextWeapon;
+        }
     }
 }
 public class PlayerStateDash : PlayerState

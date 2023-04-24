@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16909d4e733bc544e916355de9c42ebc, type: 3}
   m_Name: Degats_De_Zone
   m_EditorClassIdentifier: 
-  weaponImg: {fileID: 21300000, guid: c57b84f5257ece840ab184bb5391211b, type: 3}
+  weaponImg: {fileID: 21300000, guid: c9e6ae8c7cf2f93498e9257b95d22e92, type: 3}
   weaponName: Baguette Degats de zone
   cost: 1000
   magicBall: {fileID: 4896175736998758789, guid: 9c0551e9aa3e7354db900c5e514c3a8c, type: 3}
   kind: 1
   reloadDelay: 1
+  maxProjectiles: 3
   requirements:
   - {fileID: 11400000, guid: 8aeb54aae91576047ba163ca01157e45, type: 2}
