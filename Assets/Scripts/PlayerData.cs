@@ -173,4 +173,23 @@ public class PlayerData : Singleton<PlayerData>
             UIManager.Instance.inGameHUD.UpdateGhostGUI();
         }
     }
+
+
+    public bool Buy(WeaponUpgradeData upgradeId)
+    {
+        if (Beer >= upgradeId.cost)
+        {
+            beer -= upgradeId.cost;
+
+            equipedWeapon = upgradeId;
+            buyWeapons.Add(upgradeId);
+
+            UIManager.Instance.inGameHUD.UpdadeBeerGUI();
+
+            return true;
+        }
+        return false;
+    }
+    
+
 }

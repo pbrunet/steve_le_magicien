@@ -42,4 +42,10 @@ public class CustomMenu
     {
         PlayerData.Instance.loot(0, 0, 100);
     }
+
+    [MenuItem("Tools/AddBeer")]
+    private static void AddBeer()
+    {
+        PlayerData.Instance.loot(1000, 0, 0);
+    }
 }

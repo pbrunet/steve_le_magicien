@@ -19,15 +19,10 @@ public class WeaponUpgradeUI : MonoBehaviour
     {
         foreach (var action in allWeaponActions)
         {
-            if (PlayerData.Instance.BuyWeapons.Contains(action.weapon))
+            if (!PlayerData.Instance.BuyWeapons.Contains(action.weapon))
             {
-                action.weaponBtn.GetComponent<Image>().color = new UnityEngine.Color(255, 255, 255, 0);
+                action.weaponBtn.GetComponent<Image>().color = new UnityEngine.Color(0.3f, 0.3f, 0.3f, 1);
 
-                action.weaponBtn.onClick.AddListener(() => ShowDescr(action));
-            }
-            else if (!PlayerData.Instance.UnlockedWeapons.Contains(action.weapon))
-            {
-                action.weaponBtn.GetComponent<Image>().color = new UnityEngine.Color(255, 0, 0, 175);
                 action.weaponBtn.onClick.AddListener(() => OnBuy(action));
             }
         }
@@ -35,12 +30,11 @@ public class WeaponUpgradeUI : MonoBehaviour
 
     void OnBuy(WeaponAction action)
     {
-        Debug.Log(action.weapon.name);
-    }
-
-    void ShowDescr(WeaponAction action)
-    {
-        Debug.Log(action.weapon.name);
+        if (PlayerData.Instance.Buy(action.weapon))
+        {
+            action.weaponBtn.GetComponent<Image>().color = new UnityEngine.Color(1, 1, 1, 1);
+            action.weaponBtn.onClick.RemoveAllListeners();
+        }
     }
 
     public void Open()

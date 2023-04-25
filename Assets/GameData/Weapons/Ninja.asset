@@ -17,5 +17,7 @@ MonoBehaviour:
   cost: 1000
   magicBall: {fileID: 5305990250680303193, guid: 4216044145489934b8bff8bbee59af04, type: 3}
   kind: 4
+  reloadDelay: 1
+  maxProjectiles: 3
   requirements:
-  - {fileID: 11400000, guid: a9f776975bce68244952939051316ea9, type: 2}
+  - {fileID: 11400000, guid: 144895475c4d4f04396eca24d527fce7, type: 2}
