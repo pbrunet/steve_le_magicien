@@ -144,6 +144,9 @@ public class PlayerStateGrounded : PlayerState
             sm.gameObject.transform.localScale = new Vector3(Mathf.Abs(sm.gameObject.transform.localScale.x), sm.gameObject.transform.localScale.y, sm.gameObject.transform.localScale.z);
         }
 
+        Animator animator = sm.gameObject.GetComponent<Animator>();
+        animator.SetFloat("speed", Mathf.Abs(currentSpeed));
+
         if (!IsGrounded())
         {
             base.nextState = new PlayerStateInAir(sm);
