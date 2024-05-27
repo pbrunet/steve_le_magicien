@@ -36,7 +36,7 @@ public class GameManager : Singleton<GameManager>
         else
         {
             string sceneName = SceneManager.GetSceneAt(1).path;
-            LevelInfo info = new LevelInfo();
+            LevelInfo info = ScriptableObject.CreateInstance< LevelInfo >();
             info.sceneName = sceneName;
             info.friendlyName = "Custom Level";
             SceneManager.UnloadScene(sceneName);

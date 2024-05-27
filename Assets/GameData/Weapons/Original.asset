@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponImg: {fileID: 21300000, guid: 65ea1693d7165674ba9b0b0edad56918, type: 3}
   weaponName: Baguette original
   cost: 0
-  magicBall: {fileID: 4896175736998758789, guid: 8829c3f87eb446448afcdc7dedaff608, type: 3}
+  magicBall: {fileID: 4896175736998758789, guid: 46cd0dcad4a57a64e8484ff716d903db, type: 3}
   kind: 0
   reloadDelay: 1
   maxProjectiles: 3

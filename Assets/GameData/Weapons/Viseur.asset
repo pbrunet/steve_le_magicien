@@ -15,8 +15,9 @@ MonoBehaviour:
   weaponImg: {fileID: 21300000, guid: c57b84f5257ece840ab184bb5391211b, type: 3}
   weaponName: Baguette Viseur
   cost: 1000
-  magicBall: {fileID: 0}
+  magicBall: {fileID: 4896175736998758789, guid: 46cd0dcad4a57a64e8484ff716d903db, type: 3}
   kind: 3
   reloadDelay: 0.66
+  maxProjectiles: 3
   requirements:
   - {fileID: 11400000, guid: 8aeb54aae91576047ba163ca01157e45, type: 2}
