@@ -156,10 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff98c630285fcc14daa755900a0cbe08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8461130168212518419, guid: 8829c3f87eb446448afcdc7dedaff608, type: 3}
+  projectile: {fileID: 8461130168212518419, guid: 211863469f60f3c45b5f042af13ad592, type: 3}
   attackDistance: 100
-  projectileSpeed: 5
-  reloadTime: 1
+  projectileSpeed: 20
+  reloadTime: 5
 --- !u!1 &3268602203892973367
 GameObject:
   m_ObjectHideFlags: 0

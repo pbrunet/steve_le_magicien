@@ -45,10 +45,10 @@ public class PlayerData : Singleton<PlayerData>
     private void Start()
     {
         int version = PlayerPrefs.GetInt("version", VERSION - 1);
-        if(version != VERSION)
-        {
+        //if(version != VERSION)
+        //{
             PlayerPrefs.DeleteAll();
-        }
+        //}
 
         beer = PlayerPrefs.GetInt("beer", initBeer);
         garbage = PlayerPrefs.GetInt("garbage", initGarbage);
